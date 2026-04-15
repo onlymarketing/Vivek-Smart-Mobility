@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vivek Smart Mobility - Ola, Uber, Rapido Cab &amp; Auto Attachment in Tamil Nadu">
+    <title>Vivek Smart Mobility | Ola Uber Rapido Cab &amp; Auto Attachment</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap');
+        * { font-family: 'Poppins', system-ui, sans-serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)), 
+                        url('https://images.unsplash.com/photo-1559523193-6c6f4c5c0c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 0 25px 50px -12px rgb(249 115 22 / 0.35);
+        }
+        
+        .modal {
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes modalPop {
+            0% { transform: scale(0.85) translateY(50px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        
+        .input-field:focus {
+            border-color: #f97316;
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-900">
+
+    <!-- LANGUAGE POPUP -->
+    <div id="langModal" class="fixed inset-0 bg-black/90 flex items-center justify-center z-[99999]">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full mx-4 modal p-10 text-center">
+            <div class="mb-8">
+                <div class="w-20 h-20 mx-auto bg-orange-100 rounded-2xl flex items-center justify-center">
+                    <i class="fa-solid fa-language text-5xl text-orange-600"></i>
+                </div>
+            </div>
+            <h2 id="langTitle" class="text-3xl font-semibold mb-2">Choose Your Language</h2>
+            <p id="langSubtitle" class="text-zinc-600 mb-10 text-lg">உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</p>
+            
+            <div class="grid grid-cols-2 gap-5">
+                <button onclick="selectLanguage('en')" 
+                        class="flex flex-col items-center justify-center gap-4 border-2 border-zinc-200 hover:border-orange-500 rounded-3xl py-10 px-6 transition-all">
+                    <span id="englishLabel" class="font-semibold text-2xl">English</span>
+                </button>
+                
+                <button onclick="selectLanguage('ta')" 
+                        class="flex flex-col items-center justify-center gap-4 border-2 border-zinc-200 hover:border-orange-500 rounded-3xl py-10 px-6 transition-all">
+                    <span id="tamilLabel" class="font-semibold text-2xl">தமிழ்</span>
+                </button>
+            </div>
+            
+            <p onclick="closeLangModal()" class="text-zinc-400 mt-8 text-sm cursor-pointer hover:text-zinc-600">
+                Continue in English →
+            </p>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full border-4 border-orange-500 bg-white flex items-center justify-center">
+                    <i class="fa-solid fa-car text-3xl text-orange-600"></i>
+                </div>
+                <div>
+                    <h1 id="logoText" class="text-2xl font-bold text-orange-600">Vivek Smart Mobility</h1>
+                    <p id="logoSub" class="text-xs text-zinc-500">Ola • Uber • Rapido Cab &amp; Auto</p>
+                </div>
+            </div>
+            <div class="flex bg-zinc-100 rounded-3xl p-1 text-sm">
+                <button onclick="switchLanguage('en')" id="langEnBtn" class="px-6 py-2 rounded-3xl transition-all">English</button>
+                <button onclick="switchLanguage('ta')" id="langTaBtn" class="px-6 py-2 rounded-3xl transition-all">தமிழ்</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg text-white pt-16 pb-24">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up">
+                    <h1 id="heroHeadline" class="text-5xl md:text-6xl font-semibold leading-none tracking-tight mb-6">
+                        Ola, Uber &amp; Rapido<br>Cab &amp; Auto Attachment
+                    </h1>
+                    <p id="heroSub" class="text-xl text-white/90 mb-10">Join the best platform for Cab &amp; Auto attachment in Tamil Nadu</p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a onclick="makeCall()" class="bg-zinc-900 text-white font-semibold text-lg h-14 px-8 rounded-3xl flex items-center justify-center gap-3 active:scale-95">
+                            <i class="fa-solid fa-phone"></i>
+                            <span id="ctaCall">Call Now</span>
+                        </a>
+                        <a onclick="openWhatsAppGeneral()" class="bg-[#25D366] text-white font-semibold text-lg h-14 px-8 rounded-3xl flex items-center justify-center gap-3 active:scale-95">
+                            <i class="fa-brands fa-whatsapp text-3xl"></i>
+                            <span id="ctaWhatsApp">WhatsApp Now</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1559523193-6c6f4c5c0c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="White Wagon R Taxi Tamil Nadu" class="rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="bg-white py-5 border-b">
+        <div class="max-w-7xl mx-auto px-5 flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm font-medium text-zinc-700">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-users text-orange-500"></i> <span id="trust1">1,200+ Drivers Joined</span></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-clock text-orange-500"></i> <span id="trust2">24-Hour Approval</span></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-car text-orange-500"></i> <span id="trust3">Ola • Uber • Rapido</span></div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="max-w-7xl mx-auto px-5 py-16 text-center">
+        <h2 id="servicesHeading" class="text-4xl font-semibold mb-3 text-orange-600">Our Services</h2>
+        <p id="servicesSub" class="text-zinc-500 mb-8">Choose a service and fill details to connect instantly</p>
+        <button onclick="showServicesModal()" 
+                class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-4 rounded-3xl flex items-center gap-3 mx-auto">
+            <span id="seeAllBtn">See All 7 Services</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- SERVICES MODAL -->
+    <div id="servicesModal" class="fixed inset-0 bg-black/70 hidden flex items-end md:items-center justify-center z-[9999]">
+        <div class="bg-white w-full max-w-4xl md:rounded-3xl rounded-t-3xl max-h-[90vh] overflow-auto modal">
+            <div class="sticky top-0 bg-white px-6 py-5 border-b flex justify-between">
+                <h3 id="modalTitle" class="text-2xl font-semibold">Choose Your Service</h3>
+                <button onclick="hideServicesModal()" class="text-4xl text-zinc-400">×</button>
+            </div>
+            <div class="p-6 grid grid-cols-2 md:grid-cols-3 gap-4" id="servicesGrid"></div>
+        </div>
+    </div>
+
+    <!-- FORM MODAL -->
+    <div id="formModal" class="fixed inset-0 bg-black/70 hidden flex items-end md:items-center justify-center z-[10000]">
+        <div class="bg-white w-full max-w-lg md:rounded-3xl rounded-t-3xl modal">
+            <div class="px-6 py-5 border-b flex justify-between items-center">
+                <div id="formServiceName" class="font-semibold text-xl"></div>
+                <button onclick="hideFormModal()" class="text-4xl text-zinc-400">×</button>
+            </div>
+            
+            <div class="p-6 space-y-6">
+                <div>
+                    <label id="labelName" class="block text-sm font-medium mb-1.5">Full Name *</label>
+                    <input id="inputName" type="text" placeholder="Enter your name" 
+                           class="input-field w-full border-2 border-zinc-300 rounded-3xl px-6 py-4 text-lg outline-none">
+                </div>
+                <div>
+                    <label id="labelMobile" class="block text-sm font-medium mb-1.5">Mobile Number *</label>
+                    <input id="inputMobile" type="tel" placeholder="Your mobile number" 
+                           class="input-field w-full border-2 border-zinc-300 rounded-3xl px-6 py-4 text-lg outline-none">
+                </div>
+                <div>
+                    <label id="labelCity" class="block text-sm font-medium mb-1.5">City / Area *</label>
+                    <input id="inputCity" type="text" placeholder="Chennai, Coimbatore, etc." 
+                           class="input-field w-full border-2 border-zinc-300 rounded-3xl px-6 py-4 text-lg outline-none">
+                </div>
+            </div>
+            
+            <div class="p-6 border-t">
+                <button onclick="submitToWhatsApp()" 
+                        class="w-full bg-[#25D366] text-white h-14 rounded-3xl font-semibold flex items-center justify-center gap-3 text-lg">
+                    <i class="fa-brands fa-whatsapp text-3xl"></i>
+                    <span id="sendBtn">Send on WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY BOTTOM BAR -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t z-[99999] md:hidden shadow-2xl">
+        <div class="grid grid-cols-2 gap-3 p-4">
+            <a onclick="makeCall()" class="bg-zinc-900 text-white h-14 rounded-3xl flex items-center justify-center gap-3 font-semibold">
+                <i class="fa-solid fa-phone"></i>
+                <span id="bottomCall">Call Now</span>
+            </a>
+            <a onclick="openWhatsAppGeneral()" class="bg-[#25D366] text-white h-14 rounded-3xl flex items-center justify-center gap-3 font-semibold">
+                <i class="fa-brands fa-whatsapp text-3xl"></i>
+                <span id="bottomWA">WhatsApp</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                logoText: "Vivek Smart Mobility",
+                logoSub: "Ola • Uber • Rapido Cab &amp; Auto",
+                heroHeadline: "Ola, Uber &amp; Rapido<br>Cab &amp; Auto Attachment",
+                heroSub: "Join the best platform for Cab &amp; Auto attachment in Tamil Nadu",
+                servicesHeading: "Our Services",
+                servicesSub: "Choose a service and fill details to connect instantly",
+                seeAllBtn: "See All 7 Services",
+                modalTitle: "Choose Your Service",
+                labelName: "Full Name *",
+                labelMobile: "Mobile Number *",
+                labelCity: "City / Area *",
+                sendBtn: "Send on WhatsApp",
+                bottomCall: "Call Now",
+                bottomWA: "WhatsApp",
+                langTitle: "Choose Your Language",
+                langSubtitle: "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்",
+                englishLabel: "English",
+                tamilLabel: "தமிழ்"
+            },
+            ta: {
+                logoText: "விவேக் ஸ்மார்ட் மொபிலிட்டி",
+                logoSub: "Ola • Uber • Rapido கேப் &amp; ஆட்டோ",
+                heroHeadline: "Ola, Uber &amp; Rapido<br>கேப் &amp; ஆட்டோ இணைப்பு",
+                heroSub: "தமிழ்நாட்டில் சிறந்த கேப் &amp; ஆட்டோ இணைப்பு தளம்",
+                servicesHeading: "எங்கள் சேவைகள்",
+                servicesSub: "சேவையைத் தேர்ந்தெடுத்து விவரங்களை நிரப்புங்கள்",
+                seeAllBtn: "7 சேவைகளைப் பார்க்கவும்",
+                modalTitle: "உங்கள் சேவையைத் தேர்ந்தெடுக்கவும்",
+                labelName: "முழு பெயர் *",
+                labelMobile: "மொபைல் எண் *",
+                labelCity: "நகரம் / பகுதி *",
+                sendBtn: "வாட்ஸ்அப்பில் அனுப்பு",
+                bottomCall: "அழைக்கவும்",
+                bottomWA: "வாட்ஸ்அப்",
+                langTitle: "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்",
+                langSubtitle: "Choose Your Language",
+                englishLabel: "English",
+                tamilLabel: "தமிழ்"
+            }
+        };
+
+        let currentLang = 'en';
+        const PHONE = '7397679900';
+        let currentService = null;
+
+        const services = [
+            { icon: "fa-taxi", en: "Ola, Uber, Rapido Cab & Auto Attachment", ta: "Ola, Uber, Rapido கேப் & ஆட்டோ இணைப்பு" },
+            { icon: "fa-shield-halved", en: "Insurance", ta: "காப்பீடு" },
+            { icon: "fa-user-tie", en: "Driver Job", ta: "டிரைவர் வேலை" },
+            { icon: "fa-file-contract", en: "RTO Work", ta: "RTO பணிகள்" },
+            { icon: "fa-car", en: "Car Loan", ta: "கார் லோன்" },
+            { icon: "fa-building", en: "IT Vehicles", ta: "IT வாகனங்கள்" },
+            { icon: "fa-car-side", en: "Buy & Sell Cars", ta: "கார் வாங்க & விற்க" }
+        ];
+
+        // Safe localStorage wrapper (prevents sandbox error)
+        function getSavedLang() {
+            try {
+                return localStorage.getItem('vsmLang');
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function saveLang(lang) {
+            try {
+                localStorage.setItem('vsmLang', lang);
+            } catch (e) {}
+        }
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            Object.keys(t).forEach(key => {
+                const el = document.getElementById(key);
+                if (el) el.innerHTML = t[key];
+            });
+        }
+
+        function selectLanguage(lang) {
+            applyLanguage(lang);
+            saveLang(lang);
+            document.getElementById('langModal').style.display = 'none';
+            setTimeout(() => showServicesModal(), 800);
+        }
+
+        function closeLangModal() {
+            document.getElementById('langModal').style.display = 'none';
+            saveLang('en');
+            setTimeout(() => showServicesModal(), 800);
+        }
+
+        function switchLanguage(lang) {
+            applyLanguage(lang);
+            saveLang(lang);
+        }
+
+        function makeCall() {
+            window.location.href = `tel:${PHONE}`;
+        }
+
+        function openWhatsAppGeneral() {
+            const msg = currentLang === 'en' 
+                ? "Hi Vivek Smart Mobility! I want to know more about your services." 
+                : "வணக்கம்! உங்கள் சேவைகள் பற்றி மேலும் தெரிய வேண்டும்.";
+            window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function showServicesModal() {
+            const grid = document.getElementById('servicesGrid');
+            grid.innerHTML = '';
+            services.forEach(service => {
+                const div = document.createElement('div');
+                div.className = "service-card cursor-pointer bg-white border border-zinc-200 rounded-3xl p-6 text-center hover:border-orange-500";
+                div.innerHTML = `
+                    <i class="fa-solid ${service.icon} text-6xl text-orange-500 mb-4"></i>
+                    <p class="font-semibold text-lg">${currentLang === 'en' ? service.en : service.ta}</p>
+                `;
+                div.onclick = () => {
+                    hideServicesModal();
+                    currentService = service;
+                    showFormModal();
+                };
+                grid.appendChild(div);
+            });
+            document.getElementById('servicesModal').classList.remove('hidden');
+            document.getElementById('servicesModal').classList.add('flex');
+        }
+
+        function hideServicesModal() {
+            const modal = document.getElementById('servicesModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function showFormModal() {
+            document.getElementById('formServiceName').innerHTML = `
+                <i class="fa-solid ${currentService.icon} text-orange-500 mr-3"></i>
+                ${currentLang === 'en' ? currentService.en : currentService.ta}
+            `;
+            document.getElementById('formModal').classList.remove('hidden');
+            document.getElementById('formModal').classList.add('flex');
+        }
+
+        function hideFormModal() {
+            const modal = document.getElementById('formModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function submitToWhatsApp() {
+            const name = document.getElementById('inputName').value.trim() || "Not Provided";
+            const mobile = document.getElementById('inputMobile').value.trim() || PHONE;
+            const city = document.getElementById('inputCity').value.trim() || "Not Provided";
+
+            const serviceName = currentLang === 'en' ? currentService.en : currentService.ta;
+
+            const message = currentLang === 'en' 
+                ? `Hi Vivek Smart Mobility!%0A%0A*Service Needed:* ${serviceName}%0A*Name:* ${name}%0A*Mobile:* ${mobile}%0A*City:* ${city}%0A%0APlease contact me.`
+                : `வணக்கம் விவேக் ஸ்மார்ட் மொபிலிட்டி!%0A%0A*தேவையான சேவை:* ${serviceName}%0A*பெயர்:* ${name}%0A*மொபைல்:* ${mobile}%0A*நகரம்:* ${city}%0A%0Aதயவுசெய்து என்னை தொடர்பு கொள்ளவும்.`;
+
+            window.open(`https://wa.me/${PHONE}?text=${message}`, '_blank');
+            hideFormModal();
+
+            const toast = document.createElement('div');
+            toast.style.cssText = "position:fixed;bottom:100px;left:20px;right:20px;background:#111827;color:white;padding:16px 20px;border-radius:9999px;text-align:center;font-weight:600;z-index:99999;";
+            toast.textContent = currentLang === 'en' ? "✅ Details sent to WhatsApp!" : "✅ விவரங்கள் வாட்ஸ்அப்புக்கு அனுப்பப்பட்டது!";
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function initialize() {
+            const savedLang = getSavedLang();
+            if (savedLang) {
+                applyLanguage(savedLang);
+                setTimeout(() => showServicesModal(), 1200);
+            } else {
+                document.getElementById('langModal').style.display = 'flex';
+            }
+            AOS.init({ duration: 800, once: true });
+        }
+
+        window.onload = initialize;
+    </script>
+</body>
+</html>
