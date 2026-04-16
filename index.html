@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vivek Smart Mobility - Ola, Uber, Rapido Cab &amp; Auto Attachment in Tamil Nadu">
     <title>Vivek Smart Mobility | Ola Uber Rapido Cab &amp; Auto Attachment</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
@@ -313,13 +313,15 @@
             grid.innerHTML = '';
             services.forEach(service => {
     const div = document.createElement('div');
-    div.className = "service-card cursor-pointer bg-white border border-zinc-200 rounded-3xl p-6 text-center hover:border-orange-500";
-    
+    div.className = "service-card cursor-pointer";
+
     div.innerHTML = `
-        <i class="fa-solid ${service.icon} text-6xl text-orange-500 mb-4"></i>
-        <p class="font-semibold text-lg">
-            ${currentLang === 'en' ? service.en : service.ta}
-        </p>
+        <div class="bg-white border border-zinc-200 rounded-2xl p-4 text-center active:scale-95">
+           <i class="fa-solid ${service.icon} text-3xl text-orange-500 mb-2"></i>
+           <p class="text-sm font-medium">
+               ${currentLang === 'en' ? service.en : service.ta}
+           </p>
+        </div>
     `;
                 div.onclick = () => {
                     hideServicesModal();
