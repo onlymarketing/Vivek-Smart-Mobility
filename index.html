@@ -43,27 +43,30 @@
 <body class="bg-zinc-950 text-zinc-900">
 
     <!-- LANGUAGE POPUP -->
-    <div id="langModal" class="fixed inset-0 bg-black/90 flex items-center justify-center z-[99999]">
-        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full mx-4 modal p-10 text-center">
-            <div class="mb-8">
-                <div class="w-20 h-20 mx-auto bg-orange-100 rounded-2xl flex items-center justify-center">
-                    <i class="fa-solid fa-language text-5xl text-orange-600"></i>
-                </div>
+   <div id="langModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-[99999] px-4">
+
+    <div class="bg-white w-full max-w-sm rounded-3xl p-6 text-center animate-[fadeIn_.3s]">
+
+        <div class="mb-6">
+            <div class="w-16 h-16 mx-auto bg-orange-100 rounded-2xl flex items-center justify-center">
+                <i class="fa-solid fa-language text-3xl text-orange-600"></i>
             </div>
-            <h2 id="langTitle" class="text-3xl font-semibold mb-2">Choose Your Language</h2>
-            <p id="langSubtitle" class="text-zinc-600 mb-10 text-lg">உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</p>
-            
-            <div class="grid grid-cols-2 gap-5">
-                <button onclick="selectLanguage('en')" 
-                        class="flex flex-col items-center justify-center gap-4 border-2 border-zinc-200 hover:border-orange-500 rounded-3xl py-10 px-6 transition-all">
-                    <span id="englishLabel" class="font-semibold text-2xl">English</span>
-                </button>
-                
-                <button onclick="selectLanguage('ta')" 
-                        class="flex flex-col items-center justify-center gap-4 border-2 border-zinc-200 hover:border-orange-500 rounded-3xl py-10 px-6 transition-all">
-                    <span id="tamilLabel" class="font-semibold text-2xl">தமிழ்</span>
-                </button>
-            </div>
+        </div>
+
+        <h2 id="langTitle" class="text-xl font-semibold mb-1">Choose Language</h2>
+        <p id="langSubtitle" class="text-sm text-gray-500 mb-6">உங்கள் மொழியை தேர்ந்தெடுக்கவும்</p>
+
+        <div class="flex flex-col gap-3">
+            <button onclick="selectLanguage('en')" 
+                class="w-full border-2 border-gray-200 py-3 rounded-2xl font-medium active:scale-95">
+                English
+            </button>
+
+            <button onclick="selectLanguage('ta')" 
+                class="w-full border-2 border-gray-200 py-3 rounded-2xl font-medium active:scale-95">
+                தமிழ்
+            </button>
+        </div>
             
             <p onclick="closeLangModal()" class="text-zinc-400 mt-8 text-sm cursor-pointer hover:text-zinc-600">
                 Continue in English →
@@ -141,15 +144,21 @@
     </div>
 
     <!-- SERVICES MODAL -->
-    <div id="servicesModal" class="fixed inset-0 bg-black/70 hidden flex items-end md:items-center justify-center z-[9999]">
-        <div class="bg-white w-full max-w-4xl md:rounded-3xl rounded-t-3xl max-h-[90vh] overflow-auto modal">
-            <div class="sticky top-0 bg-white px-6 py-5 border-b flex justify-between">
-                <h3 id="modalTitle" class="text-2xl font-semibold">Choose Your Service</h3>
-                <button onclick="hideServicesModal()" class="text-4xl text-zinc-400">×</button>
-            </div>
-            <div class="p-6 grid grid-cols-2 md:grid-cols-3 gap-4" id="servicesGrid"></div>
+   <div id="servicesModal" class="fixed inset-0 bg-black/80 hidden flex items-end md:items-center justify-center z-[9999]">
+
+    <div class="bg-white w-full max-w-3xl rounded-t-3xl md:rounded-3xl max-h-[90vh] flex flex-col">
+
+        <!-- HEADER -->
+        <div class="p-4 border-b flex justify-between items-center">
+            <h3 id="modalTitle" class="text-lg font-semibold">Choose Service</h3>
+            <button onclick="hideServicesModal()" class="text-2xl">×</button>
         </div>
-    </div>
+
+        <!-- SERVICES GRID -->
+        <div id="servicesGrid" class="p-4 grid grid-cols-2 gap-3 overflow-y-auto flex-1"></div>
+
+     </div>
+  </div>
 
     <!-- FORM MODAL -->
     <div id="formModal" class="fixed inset-0 bg-black/70 hidden flex items-end md:items-center justify-center z-[10000]">
@@ -303,12 +312,15 @@
             const grid = document.getElementById('servicesGrid');
             grid.innerHTML = '';
             services.forEach(service => {
-                const div = document.createElement('div');
-                div.className = "service-card cursor-pointer bg-white border border-zinc-200 rounded-3xl p-6 text-center hover:border-orange-500";
-                div.innerHTML = `
-                    <i class="fa-solid ${service.icon} text-6xl text-orange-500 mb-4"></i>
-                    <p class="font-semibold text-lg">${currentLang === 'en' ? service.en : service.ta}</p>
-                `;
+    const div = document.createElement('div');
+    div.className = "service-card cursor-pointer bg-white border border-zinc-200 rounded-3xl p-6 text-center hover:border-orange-500";
+    
+    div.innerHTML = `
+        <i class="fa-solid ${service.icon} text-6xl text-orange-500 mb-4"></i>
+        <p class="font-semibold text-lg">
+            ${currentLang === 'en' ? service.en : service.ta}
+        </p>
+    `;
                 div.onclick = () => {
                     hideServicesModal();
                     currentService = service;
