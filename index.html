@@ -14,7 +14,7 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap');
-        * { font-family: 'Poppins', system-ui, sans-serif; }
+        * { font-family: 'Poppins', system-ui, sans-serif; } 
         
         .hero-bg {
             background: linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)), 
@@ -137,11 +137,23 @@
                         </a>
                     </div>
                 </div>
-                <div class="hidden md:block" data-aos="fade-left">
-                    <img src="https://images.livemint.com/img/2020/09/01/600x338/ola-ka9E--621x414@LiveMint_1598963844263.jpgixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                         alt="White Wagon R Taxi Tamil Nadu" class="rounded-3xl shadow-2xl">
-                </div>
-            </div>
+                <div class="hidden md:flex items-center justify-center" data-aos="fade-left">
+
+    <div class="w-full h-[350px] rounded-3xl bg-white/10 backdrop-blur-lg flex items-center justify-center relative overflow-hidden shadow-2xl border border-white/20">
+
+        <!-- MAIN ICON -->
+        <i class="fa-solid fa-car text-7xl text-orange-400 animate-bounce"></i>
+
+        <!-- FLOATING DOTS -->
+        <div class="absolute top-6 left-6 w-10 h-10 bg-orange-400 rounded-full opacity-30 animate-ping"></div>
+
+        <div class="absolute bottom-6 right-6 w-8 h-8 bg-orange-300 rounded-full opacity-40 animate-pulse"></div>
+
+        <div class="absolute top-1/2 left-10 w-6 h-6 bg-orange-500 rounded-full opacity-20 animate-bounce"></div>
+
+    </div>
+
+</div>
         </div>
     </section>
 
