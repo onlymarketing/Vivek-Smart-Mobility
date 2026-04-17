@@ -206,7 +206,13 @@
                 </div>
                 <div>
                     <label id="labelMobile" class="block text-sm font-medium mb-1.5">Mobile Number *</label>
-                    <input id="inputMobile" type="tel" placeholder="Your mobile number" 
+                   <input id="inputMobile" 
+                          type="tel" 
+                          maxlength="10"
+                          pattern="[0-9]{10}"
+                          inputmode="numeric"
+                          placeholder="Your mobile number"
+                          class="input-field w-full border-2 border-zinc-300 rounded-3xl px-6 py-4 text-lg outline-none"> 
                            class="input-field w-full border-2 border-zinc-300 rounded-3xl px-6 py-4 text-lg outline-none">
                 </div>
                 <div>
@@ -387,7 +393,15 @@
 
        function submitToWhatsApp() {
     const name = document.getElementById('inputName').value.trim() || "Not Provided";
-    const mobile = document.getElementById('inputMobile').value.trim() || PHONE;
+    const mobile = document.getElementById('inputMobile').value.trim();
+     // validation
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+        alert(currentLang === 'en' 
+            ? "Enter valid 10-digit mobile number"
+            : "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்");
+        return;
+    }
+           
     const city = document.getElementById('inputCity').value.trim() || "Not Provided";
 
     const serviceName = currentLang === 'en' ? currentService.en : currentService.ta;
