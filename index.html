@@ -385,26 +385,45 @@
             modal.classList.remove('flex');
         }
 
-        function submitToWhatsApp() {
-            const name = document.getElementById('inputName').value.trim() || "Not Provided";
-            const mobile = document.getElementById('inputMobile').value.trim() || PHONE;
-            const city = document.getElementById('inputCity').value.trim() || "Not Provided";
+       function submitToWhatsApp() {
+    const name = document.getElementById('inputName').value.trim() || "Not Provided";
+    const mobile = document.getElementById('inputMobile').value.trim() || PHONE;
+    const city = document.getElementById('inputCity').value.trim() || "Not Provided";
 
-            const serviceName = currentLang === 'en' ? currentService.en : currentService.ta;
+    const serviceName = currentLang === 'en' ? currentService.en : currentService.ta;
 
-            const message = currentLang === 'en' 
-                ? `Hi Vivek Smart Mobility!%0A%0A*Service Needed:* ${serviceName}%0A*Name:* ${name}%0A*Mobile:* ${mobile}%0A*City:* ${city}%0A%0APlease contact me.`
-                : `வணக்கம் விவேக் ஸ்மார்ட் மொபிலிட்டி!%0A%0A*தேவையான சேவை:* ${serviceName}%0A*பெயர்:* ${name}%0A*மொபைல்:* ${mobile}%0A*நகரம்:* ${city}%0A%0Aதயவுசெய்து என்னை தொடர்பு கொள்ளவும்.`;
+    // ✅ NORMAL TEXT (no %0A)
+    const messageText = currentLang === 'en' 
+        ? `Hi Vivek Smart Mobility!
 
-            window.open(`https://wa.me/${PHONE}?text=${message}`, '_blank');
-            hideFormModal();
+Service Needed: ${serviceName}
+Name: ${name}
+Mobile: ${mobile}
+City: ${city}
 
-            const toast = document.createElement('div');
-            toast.style.cssText = "position:fixed;bottom:100px;left:20px;right:20px;background:#111827;color:white;padding:16px 20px;border-radius:9999px;text-align:center;font-weight:600;z-index:99999;";
-            toast.textContent = currentLang === 'en' ? "✅ Details sent to WhatsApp!" : "✅ விவரங்கள் வாட்ஸ்அப்புக்கு அனுப்பப்பட்டது!";
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
+Please contact me.`
+        : `வணக்கம் விவேக் ஸ்மார்ட் மொபிலிட்டி!
+
+தேவையான சேவை: ${serviceName}
+பெயர்: ${name}
+மொபைல்: ${mobile}
+நகரம்: ${city}
+
+தயவுசெய்து என்னை தொடர்பு கொள்ளவும்.`;
+
+    // ✅ IMPORTANT (fix)
+    const encodedMessage = encodeURIComponent(messageText);
+
+    window.open(`https://wa.me/${PHONE}?text=${encodedMessage}`, '_blank');
+
+    hideFormModal();
+
+    const toast = document.createElement('div');
+    toast.style.cssText = "position:fixed;bottom:100px;left:20px;right:20px;background:#111827;color:white;padding:16px 20px;border-radius:9999px;text-align:center;font-weight:600;z-index:99999;";
+    toast.textContent = currentLang === 'en' ? "✅ Details sent to WhatsApp!" : "✅ விவரங்கள் வாட்ஸ்அப்புக்கு அனுப்பப்பட்டது!";
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
 
         function initialize() {
             const savedLang = getSavedLang();
