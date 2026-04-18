@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onlymarketing.github.io/Vivek-Smart-Mobility/sitemap.xml
