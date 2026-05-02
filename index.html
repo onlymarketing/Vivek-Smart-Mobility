@@ -500,8 +500,11 @@ Please contact me.`
     source: "Landing Page"
 };
 
+console.log("Lead Data:", leadData);
+
 fetch("https://script.google.com/macros/s/AKfycbyqtBFQb4453B84tWnEhTZilUeqMDarjW-AeUFMfGH0nnjV5B-Buvip5LwyHZsJepes/exec", {
     method: "POST",
+    mode: "no-cors",
     headers: {
         "Content-Type": "application/json"
     },
