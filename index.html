@@ -397,6 +397,8 @@ src="https://www.facebook.com/tr?id=3972817646347384&ev=PageView&noscript=1"
         }
 
         function selectLanguage(lang) {
+            // --- Facebook Tracking Code ---
+    fbq('trackCustom', 'LanguageSelected', { language: lang });
             applyLanguage(lang);
             saveLang(lang);
             document.getElementById('langModal').style.display = 'none';
@@ -431,6 +433,7 @@ src="https://www.facebook.com/tr?id=3972817646347384&ev=PageView&noscript=1"
             services.forEach(service => {
     const div = document.createElement('div');
     div.className = "service-card cursor-pointer";
+        
 
     div.innerHTML = `
         <div class="bg-white border border-zinc-200 rounded-2xl p-4 text-center active:scale-95">
