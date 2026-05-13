@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fast vehicle insurance renewal in Chennai & Tamil Nadu. Car, auto & commercial insurance with claim support available.">
+    <meta name="keywords" content="vehicle insurance, car insurance renewal, auto insurance tamilnadu, commercial vehicle insurance, insurance office chennai">
+    <title>Vehicle Insurance Chennai | Car & Auto Insurance Renewal - Vivek Smart Mobility</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@600;700&display=swap');
+        
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), 
+                              url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .shield {
+            animation: shield-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes shield-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-15px);
+        }
+    </style>
+</head>
+<body class="tail-container bg-black text-white">
+    <!-- NAVBAR -->
+    <nav class="bg-black border-b border-orange-500 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center text-3xl font-bold">V</div>
+                <div>
+                    <span class="heading-font text-3xl font-bold tracking-tighter">VIVEK</span>
+                    <span class="block -mt-1 text-orange-400 text-sm font-medium">SMART MOBILITY</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#types" class="hover:text-orange-400 transition">Insurance Types</a>
+                <a href="#claim" class="hover:text-orange-400 transition">Claim Support</a>
+                <a href="#why" class="hover:text-orange-400 transition">Why Us</a>
+                <a href="#faq" class="hover:text-orange-400 transition">FAQ</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="tel:+919876543210" class="hidden sm:flex items-center gap-2 bg-white text-black px-6 py-3 rounded-3xl font-semibold">
+                    <i class="fa-solid fa-phone"></i> CALL
+                </a>
+                <button onclick="openWhatsApp()" 
+                        class="flex items-center gap-3 bg-green-500 hover:bg-green-600 px-7 py-3 rounded-3xl font-semibold transition-all">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span class="hidden sm:inline">WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-3xl mb-8 border border-white/20">
+                    <i class="fa-solid fa-shield-halved text-orange-400 text-2xl shield"></i>
+                    <span class="font-medium">IRDAI APPROVED • ALL INDIA COVERAGE</span>
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                    FAST &amp; TRUSTED<br>VEHICLE INSURANCE
+                </h1>
+                
+                <p class="text-3xl text-white/90 mb-10">
+                    Claim Support • Low Premium • All India Coverage
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="tel:+919876543210" 
+                       class="flex-1 bg-white text-black text-2xl font-bold py-8 px-10 rounded-3xl flex items-center justify-center gap-5 hover:scale-105 transition-all shadow-2xl">
+                        <i class="fa-solid fa-phone text-4xl"></i>
+                        <div>
+                            <div class="uppercase text-xs tracking-[2px]">GET QUOTE NOW</div>
+                            <div class="text-3xl">+91 98765 43210</div>
+                        </div>
+                    </a>
+                    
+                    <button onclick="openWhatsApp()" 
+                            class="flex-1 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold py-8 px-10 rounded-3xl flex items-center justify-center gap-5 hover:scale-105 transition-all shadow-2xl">
+                        <i class="fa-brands fa-whatsapp text-5xl"></i>
+                        <div>
+                            <div class="uppercase text-xs tracking-[2px]">WHATSAPP NOW</div>
+                            <div class="text-3xl">Instant Quote</div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-10 text-sm">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check-circle text-green-400 text-2xl"></i>
+                        <span>Zero Paperwork</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check-circle text-green-400 text-2xl"></i>
+                        <span>Same Day Renewal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Shield -->
+        <div class="hidden lg:flex absolute bottom-20 right-12 bg-white/10 backdrop-blur-3xl border border-white/30 rounded-3xl p-8 items-center gap-6">
+            <div class="text-7xl">🛡️</div>
+            <div>
+                <div class="text-4xl font-bold text-orange-400">₹2.5 Cr+</div>
+                <div class="text-white/70">Claims Settled</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="py-20 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl mb-6">⚡</div>
+                    <h3 class="font-bold text-2xl mb-2">Instant Renewal</h3>
+                    <p class="text-zinc-400">Policy in minutes</p>
+                </div>
+                <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl mb-6">📉</div>
+                    <h3 class="font-bold text-2xl mb-2">Lowest Premium</h3>
+                    <p class="text-zinc-400">Best market rates</p>
+                </div>
+                <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl mb-6">🛠️</div>
+                    <h3 class="font-bold text-2xl mb-2">Claim Support</h3>
+                    <p class="text-zinc-400">End-to-end assistance</p>
+                </div>
+                <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl mb-6">🇮🇳</div>
+                    <h3 class="font-bold text-2xl mb-2">All India</h3>
+                    <p class="text-zinc-400">Any RTO covered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSURANCE TYPES -->
+    <section id="types" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="bg-orange-500 text-black px-6 py-2 rounded-full font-bold">PROTECTION PLANS</span>
+                <h2 class="heading-font text-5xl font-bold mt-4">Vehicle Insurance Types</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <div class="text-6xl mb-6">🚗</div>
+                    <h3 class="text-2xl font-bold">Car Insurance</h3>
+                    <p class="text-zinc-400 mt-2">Comprehensive &amp; Third Party</p>
+                    <button onclick="scrollToForm()" class="mt-8 text-orange-500 font-medium flex items-center gap-2">Get Quote →</button>
+                </div>
+                
+                <div class="bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <div class="text-6xl mb-6">🛺</div>
+                    <h3 class="text-2xl font-bold">Auto Insurance</h3>
+                    <p class="text-zinc-400 mt-2">Three-wheeler coverage</p>
+                    <button onclick="scrollToForm()" class="mt-8 text-orange-500 font-medium flex items-center gap-2">Get Quote →</button>
+                </div>
+                
+                <div class="bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <div class="text-6xl mb-6">🚚</div>
+                    <h3 class="text-2xl font-bold">Commercial Insurance</h3>
+                    <p class="text-zinc-400 mt-2">Goods carrier &amp; trucks</p>
+                    <button onclick="scrollToForm()" class="mt-8 text-orange-500 font-medium flex items-center gap-2">Get Quote →</button>
+                </div>
+                
+                <div class="bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <div class="text-6xl mb-6">🚕</div>
+                    <h3 class="text-2xl font-bold">Taxi Insurance</h3>
+                    <p class="text-zinc-400 mt-2">Ola, Uber &amp; Rapido</p>
+                    <button onclick="scrollToForm()" class="mt-8 text-orange-500 font-medium flex items-center gap-2">Get Quote →</button>
+                </div>
+                
+                <div class="bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <div class="text-6xl mb-6">🔄</div>
+                    <h3 class="text-2xl font-bold">Renewal Insurance</h3>
+                    <p class="text-zinc-400 mt-2">Fast &amp; Hassle-free</p>
+                    <button onclick="scrollToForm()" class="mt-8 text-orange-500 font-medium flex items-center gap-2">Get Quote →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLAIM SUPPORT -->
+    <section id="claim" class="py-20 bg-zinc-950">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-gradient-to-r from-zinc-900 to-black rounded-3xl p-12 md:p-16 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="heading-font text-5xl font-bold">24×7 Claim Support</h2>
+                    <p class="mt-6 text-xl text-zinc-300">From accident to settlement — we handle everything.</p>
+                    <ul class="mt-10 space-y-6">
+                        <li class="flex gap-4"><span class="text-green-400 text-2xl">✔</span> On-spot surveyor dispatch</li>
+                        <li class="flex gap-4"><span class="text-green-400 text-2xl">✔</span> Cashless repair network</li>
+                        <li class="flex gap-4"><span class="text-green-400 text-2xl">✔</span> Average 7-day settlement</li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 text-center">
+                    <div class="text-8xl mb-6">🛡️</div>
+                    <div class="text-5xl font-bold text-orange-400">98.7%</div>
+                    <div class="text-zinc-400 mt-2">Claim Settlement Ratio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl font-bold text-center mb-12">Why Vehicle Owners Trust Us</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="mx-auto w-20 h-20 bg-orange-500/10 rounded-2xl flex items-center justify-center text-5xl mb-6">📍</div>
+                    <h4 class="font-semibold text-2xl">Tamil Nadu Focus</h4>
+                    <p class="text-zinc-400 mt-3">Chennai, Coimbatore, Madurai &amp; entire TN</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-20 h-20 bg-orange-500/10 rounded-2xl flex items-center justify-center text-5xl mb-6">🏦</div>
+                    <h4 class="font-semibold text-2xl">IRDAI Licensed</h4>
+                    <p class="text-zinc-400 mt-3">Authorized insurance partner</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-20 h-20 bg-orange-500/10 rounded-2xl flex items-center justify-center text-5xl mb-6">👨‍💼</div>
+                    <h4 class="font-semibold text-2xl">Dedicated Support</h4>
+                    <p class="text-zinc-400 mt-3">Tamil + English assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-zinc-950">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="heading-font text-5xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <div onclick="toggleFAQ(this)" class="faq-item bg-zinc-900 rounded-3xl cursor-pointer">
+                    <div class="px-8 py-7 flex justify-between">
+                        <h3 class="font-medium">How long does renewal take?</h3>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer hidden px-8 pb-8 text-zinc-400">Most policies are renewed within 30 minutes.</div>
+                </div>
+                
+                <div onclick="toggleFAQ(this)" class="faq-item bg-zinc-900 rounded-3xl cursor-pointer">
+                    <div class="px-8 py-7 flex justify-between">
+                        <h3 class="font-medium">Do you support commercial vehicles?</h3>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer hidden px-8 pb-8 text-zinc-400">Yes. We insure taxis, autos, trucks &amp; goods carriers.</div>
+                </div>
+                
+                <div onclick="toggleFAQ(this)" class="faq-item bg-zinc-900 rounded-3xl cursor-pointer">
+                    <div class="px-8 py-7 flex justify-between">
+                        <h3 class="font-medium">Is cashless repair available?</h3>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer hidden px-8 pb-8 text-zinc-400">Yes, across 2000+ network garages in India.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEAD FORM -->
+    <section id="quote" class="py-24 bg-black">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="bg-zinc-900 rounded-3xl p-12 md:p-16">
+                <h2 class="heading-font text-4xl font-bold text-center">Get Your Insurance Quote in 60 Seconds</h2>
+                <p class="text-center text-zinc-400 mt-4">Fast • Transparent • No spam</p>
+                
+                <form id="insuranceForm" onsubmit="submitForm(event)" class="mt-12 space-y-7">
+                    <input type="text" placeholder="Full Name" required class="w-full bg-black border border-zinc-700 rounded-2xl px-7 py-6 outline-none focus:border-orange-500">
+                    <input type="tel" placeholder="Mobile Number" required class="w-full bg-black border border-zinc-700 rounded-2xl px-7 py-6 outline-none focus:border-orange-500">
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <select required class="w-full bg-black border border-zinc-700 rounded-2xl px-7 py-6 outline-none focus:border-orange-500">
+                            <option value="">Vehicle Type</option>
+                            <option>Car</option>
+                            <option>Auto</option>
+                            <option>Taxi</option>
+                            <option>Commercial</option>
+                        </select>
+                        <input type="text" placeholder="Vehicle Number" required class="w-full bg-black border border-zinc-700 rounded-2xl px-7 py-6 outline-none focus:border-orange-500">
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold text-2xl py-8 rounded-3xl transition-all">
+                        GET INSTANT QUOTE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- STICKY CTA -->
+    <div class="fixed bottom-0 left-0 right-0 bg-black border-t border-orange-500 md:hidden z-50">
+        <div class="flex">
+            <a href="tel:+919876543210" class="flex-1 py-6 bg-white text-black font-bold text-lg flex items-center justify-center gap-3">
+                <i class="fa-solid fa-phone"></i> GET QUOTE
+            </a>
+            <button onclick="openWhatsApp()" class="flex-1 py-6 bg-green-500 font-bold text-lg flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-3xl"></i> WHATSAPP
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-zinc-800 text-center text-sm text-zinc-500">
+        <div class="max-w-7xl mx-auto px-6">
+            © 2026 Vivek Smart Mobility • IRDAI Licensed Insurance Partner<br>
+            Chennai | Tamil Nadu | PAN India Service
+        </div>
+    </footer>
+
+    <script>
+        function openWhatsApp() {
+            const phone = "919876543210";
+            const message = "Hi, I need a vehicle insurance quote for my car/auto/commercial vehicle.";
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function toggleFAQ(el) {
+            const answer = el.querySelector('.faq-answer');
+            const icon = el.querySelector('i');
+            answer.classList.toggle('hidden');
+            icon.style.transform = answer.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        }
+
+        function scrollToForm() {
+            document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.textContent;
+            
+            btn.innerHTML = `
+                <span class="inline-block animate-spin mr-3">⟳</span> 
+                PROCESSING...
+            `;
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert("✅ Thank you! Our insurance expert will call you within 5 minutes with the best quote.");
+                e.target.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1800);
+        }
+
+        // Tailwind script already loaded
+    </script>
+</body>
+</html>
