@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ola Attachment Chennai | Ola Car & Auto Attachment Office</title>
+<meta name="description" content="Ola Attachment Chennai - Trusted Ola Car & Auto Attachment Office. Fast approval. Join today!">
+<meta name="keywords" content="ola attachment chennai, ola attachment office near me, ola car attachment, ola auto attachment">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body { font-family: 'Poppins', sans-serif; }
+    .hero-bg { 
+        background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), 
+                    url('https://source.unsplash.com/random/1920x1080/?chennai-taxi') center/cover no-repeat; 
+    }
+    .headline-text { color: #facc15 !important; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
+    .yellow-btn { background: #facc15; color: #000; font-weight: 700; }
+    .service-card { transition: all 0.2s; }
+    .service-card:hover { transform: scale(1.05); }
+</style>
+</head>
+<body class="bg-black text-white">
+
+<!-- LANGUAGE POPUP -->
+<div id="langModal" class="fixed inset-0 bg-black/90 flex items-center justify-center z-[99999] px-4">
+    <div class="bg-zinc-900 w-full max-w-sm rounded-3xl p-8 text-center">
+        <div class="w-20 h-20 mx-auto bg-yellow-500 rounded-2xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-language text-4xl text-black"></i>
+        </div>
+        <h2 id="langTitle" class="text-2xl font-bold mb-2">Choose Language</h2>
+        <p id="langSubtitle" class="text-yellow-400 mb-8">உங்கள் மொழியை தேர்ந்தெடுக்கவும்</p>
+        <div class="space-y-4">
+            <button onclick="selectLanguage('en')" class="w-full bg-white text-black py-4 rounded-2xl font-semibold">English</button>
+            <button onclick="selectLanguage('ta')" class="w-full bg-white text-black py-4 rounded-2xl font-semibold">தமிழ்</button>
+        </div>
+        <p onclick="closeLangModal()" class="text-zinc-400 mt-8 cursor-pointer">Continue in English →</p>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="bg-zinc-900 border-b border-yellow-500 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full border-2 border-yellow-500 overflow-hidden">
+                <img src="logo.png" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 id="logoText" class="text-xl font-bold text-yellow-400">Vivek Smart Mobility</h1>
+                <p id="logoSub" class="text-xs text-zinc-400">Ola • Uber • Rapido</p>
+            </div>
+        </div>
+        <div class="flex bg-zinc-800 rounded-full p-1 text-sm">
+            <button onclick="switchLanguage('en')" class="px-5 py-2 rounded-full">EN</button>
+            <button onclick="switchLanguage('ta')" class="px-5 py-2 rounded-full">தமிழ்</button>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg pt-20 pb-28 text-center">
+    <div class="max-w-4xl mx-auto px-5" data-aos="fade-up">
+        <h1 id="heroHeadline" class="headline-text text-5xl md:text-6xl font-bold leading-tight mb-6">
+            Ola Attachment Chennai<br>Car & Auto Attachment Office
+        </h1>
+        <p id="heroSub" class="text-xl md:text-2xl text-yellow-300 mb-10">
+            Fast Ola Car & Auto Attachment in Chennai
+        </p>
+        <button onclick="showServicesModal()" 
+                class="yellow-btn flex items-center gap-3 px-10 py-5 rounded-3xl text-xl mx-auto">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+            <span id="ctaWhatsApp">Apply Now on WhatsApp</span>
+        </button>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="bg-zinc-900 py-6 border-b border-yellow-500">
+    <div class="max-w-7xl mx-auto px-5 flex flex-wrap justify-center gap-x-12 gap-y-4 text-sm">
+        <div class="flex items-center gap-2"><i class="fa-solid fa-users text-yellow-400"></i> <span id="trust1">Many Drivers Joined</span></div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-clock text-yellow-400"></i> <span id="trust2">Fast Approval</span></div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-car text-yellow-400"></i> <span id="trust3">Ola Car & Auto</span></div>
+    </div>
+</div>
+
+<!-- MAIN SEO CONTENT -->
+<div class="max-w-7xl mx-auto px-5 py-16 space-y-12 text-zinc-200">
+    <h2 id="mainHeading" class="text-4xl font-bold text-yellow-400">Ola Attachment Chennai</h2>
+    <p id="introPara1" class="text-lg leading-relaxed">
+        Searching for <b>Ola Attachment Office Near Me</b> in Chennai? We provide easy <b>Ola Car Attachment</b> and <b>Ola Auto Attachment</b> with full support.
+    </p>
+</div>
+
+<!-- SERVICES MODAL (Same as Index) -->
+<div id="servicesModal" class="fixed inset-0 bg-black/80 hidden flex items-end md:items-center justify-center z-[9999]">
+    <div class="bg-zinc-900 w-full max-w-3xl rounded-t-3xl md:rounded-3xl max-h-[90vh] flex flex-col">
+        <div class="p-5 border-b border-yellow-500 flex justify-between">
+            <h3 id="modalTitle" class="text-xl font-semibold">Choose Service</h3>
+            <button onclick="hideServicesModal()" class="text-3xl">×</button>
+        </div>
+        <div id="servicesGrid" class="p-5 grid grid-cols-2 gap-4 overflow-y-auto flex-1"></div>
+    </div>
+</div>
+
+<!-- FORM MODAL -->
+<div id="formModal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[10000]">
+    <div class="bg-zinc-900 w-full max-w-lg mx-4 rounded-3xl">
+        <div class="p-6 border-b border-yellow-500 flex justify-between">
+            <div id="formServiceName" class="font-bold text-xl text-yellow-400"></div>
+            <button onclick="hideFormModal()" class="text-4xl">×</button>
+        </div>
+        <div class="p-8 space-y-6">
+            <div>
+                <label id="labelName" class="block mb-2">Full Name *</label>
+                <input id="inputName" type="text" class="w-full bg-zinc-800 border border-yellow-500 rounded-2xl px-6 py-4 outline-none text-white">
+            </div>
+            <div>
+                <label id="labelMobile" class="block mb-2">Mobile Number *</label>
+                <input id="inputMobile" type="tel" maxlength="10" class="w-full bg-zinc-800 border border-yellow-500 rounded-2xl px-6 py-4 outline-none text-white">
+            </div>
+            <div>
+                <label id="labelCity" class="block mb-2">City / Area *</label>
+                <input id="inputCity" type="text" value="Chennai" class="w-full bg-zinc-800 border border-yellow-500 rounded-2xl px-6 py-4 outline-none text-white">
+            </div>
+        </div>
+        <div class="p-6 border-t border-yellow-500">
+            <button onclick="submitToWhatsApp()" class="w-full yellow-btn py-5 rounded-3xl text-xl flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-3xl"></i>
+                <span id="sendBtn">Send on WhatsApp</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ================= TRANSLATIONS =================
+const translations = {
+    en: {
+        logoText: "Vivek Smart Mobility",
+        logoSub: "Ola • Uber • Rapido",
+        heroHeadline: "Ola Attachment Chennai<br>Car & Auto Attachment Office",
+        heroSub: "Fast Ola Car & Auto Attachment in Chennai",
+        trust1: "Many Drivers Joined",
+        trust2: "Fast Approval",
+        trust3: "Ola Car & Auto",
+        mainHeading: "Ola Attachment Chennai",
+        introPara1: "Searching for <b>Ola Attachment Office Near Me</b> in Chennai? We provide easy <b>Ola Car Attachment</b> and <b>Ola Auto Attachment</b>.",
+        modalTitle: "Choose Service",
+        labelName: "Full Name *",
+        labelMobile: "Mobile Number *",
+        labelCity: "City / Area *",
+        sendBtn: "Send on WhatsApp",
+        ctaWhatsApp: "Apply Now on WhatsApp"
+    },
+    ta: {
+        logoText: "விவேக் ஸ்மார்ட் மொபிலிட்டி",
+        logoSub: "ஓலா • உபர் • ரேபிடோ",
+        heroHeadline: "ஓலா இணைப்பு சென்னை<br>கார் & ஆட்டோ இணைப்பு அலுவலகம்",
+        heroSub: "சென்னையில் வேகமான ஓலா கார் & ஆட்டோ இணைப்பு",
+        trust1: "பல டிரைவர்கள் இணைந்தனர்",
+        trust2: "வேகமான அனுமதி",
+        trust3: "ஓலா கார் & ஆட்டோ",
+        mainHeading: "ஓலா இணைப்பு சென்னை",
+        introPara1: "<b>ஓலா இணைப்பு அலுவலகம் அருகில்</b> தேடுகிறீர்களா? ஓலா கார் மற்றும் ஆட்டோ இணைப்பு எளிதாக கிடைக்கும்.",
+        modalTitle: "சேவையைத் தேர்ந்தெடுக்கவும்",
+        labelName: "முழு பெயர் *",
+        labelMobile: "மொபைல் எண் *",
+        labelCity: "நகரம் / பகுதி *",
+        sendBtn: "வாட்ஸ்அப்பில் அனுப்பு",
+        ctaWhatsApp: "இப்போது விண்ணப்பிக்கவும்"
+    }
+};
+
+let currentLang = 'en';
+const PHONE = '7397679900';
+let currentService = null;
+
+const services = [
+    { icon: "fa-taxi", en: "Ola Car Attachment", ta: "ஓலா கார் இணைப்பு" },
+    { icon: "fa-car-side", en: "Ola Auto Attachment", ta: "ஓலா ஆட்டோ இணைப்பு" },
+    { icon: "fa-shield-halved", en: "Insurance", ta: "காப்பீடு" },
+    { icon: "fa-user-tie", en: "Driver Job", ta: "டிரைவர் வேலை" }
+];
+
+function applyLanguage(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+    Object.keys(t).forEach(key => {
+        const el = document.getElementById(key);
+        if (el) el.innerHTML = t[key];
+    });
+}
+
+function selectLanguage(lang) {
+    applyLanguage(lang);
+    document.getElementById('langModal').style.display = 'none';
+    setTimeout(showServicesModal, 600);
+}
+
+function closeLangModal() {
+    document.getElementById('langModal').style.display = 'none';
+    applyLanguage('en');
+    setTimeout(showServicesModal, 600);
+}
+
+function switchLanguage(lang) {
+    applyLanguage(lang);
+}
+
+// Services Modal
+function showServicesModal() {
+    const grid = document.getElementById('servicesGrid');
+    grid.innerHTML = '';
+    services.forEach(service => {
+        const div = document.createElement('div');
+        div.className = "service-card cursor-pointer bg-zinc-900 border border-yellow-500/30 rounded-3xl p-6 text-center";
+        div.innerHTML = `
+            <i class="fa-solid ${service.icon} text-4xl text-yellow-400 mb-4"></i>
+            <p class="font-medium">${currentLang === 'en' ? service.en : service.ta}</p>
+        `;
+        div.onclick = () => {
+            hideServicesModal();
+            currentService = service;
+            showFormModal();
+        };
+        grid.appendChild(div);
+    });
+    document.getElementById('servicesModal').classList.remove('hidden');
+    document.getElementById('servicesModal').classList.add('flex');
+}
+
+function hideServicesModal() {
+    const modal = document.getElementById('servicesModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+function showFormModal() {
+    document.getElementById('formServiceName').innerHTML = currentLang === 'en' ? currentService.en : currentService.ta;
+    document.getElementById('formModal').classList.remove('hidden');
+    document.getElementById('formModal').classList.add('flex');
+}
+
+function hideFormModal() {
+    const modal = document.getElementById('formModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+function submitToWhatsApp() {
+    const name = document.getElementById('inputName').value.trim() || "Not Provided";
+    const mobile = document.getElementById('inputMobile').value.trim();
+    
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+        alert(currentLang === 'en' ? "Enter valid 10-digit mobile number" : "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்");
+        return;
+    }
+
+    const city = document.getElementById('inputCity').value.trim() || "Chennai";
+    const serviceName = currentLang === 'en' ? currentService.en : currentService.ta;
+
+    const messageText = currentLang === 'en'
+        ? `Hi Vivek Smart Mobility!\nService: ${serviceName}\nName: ${name}\nMobile: ${mobile}\nCity: ${city}\nPlease contact me.`
+        : `வணக்கம் விவேக் ஸ்மார்ட் மொபிலிட்டி!\nசேவை: ${serviceName}\nபெயர்: ${name}\nமொபைல்: ${mobile}\nநகரம்: ${city}\nதொடர்பு கொள்ளவும்.`;
+
+    // Save to Google Sheet
+    fetch("https://script.google.com/macros/s/AKfycbyqtBFQb4453B84tWnEhTZilUeqMDarjW-AeUFMfGH0nnjV5B-Buvip5LwyHZsJepes/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+            service: serviceName,
+            name: name,
+            mobile: mobile,
+            city: city,
+            language: currentLang,
+            source: "Ola Attachment Chennai Page"
+        })
+    });
+
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(messageText)}`, '_blank');
+    hideFormModal();
+}
+
+// Initialize
+function initialize() {
+    AOS.init({ duration: 800, once: true });
+    const savedLang = localStorage.getItem('vsmLang');
+    if (savedLang) {
+        applyLanguage(savedLang);
+        setTimeout(showServicesModal, 800);
+    } else {
+        document.getElementById('langModal').style.display = 'flex';
+    }
+}
+
+window.onload = initialize;
+</script>
+</body>
+</html>
