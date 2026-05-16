@@ -9,170 +9,156 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#f97316">
 
-<!-- PERFORMANCE OPTIMIZATIONS (100/100 PageSpeed) -->
 <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-<!-- Preload critical assets -->
-<link rel="preload" href="logo.png" as="image">
-<link rel="preload" href="hero.webp" as="image">
-
-<!-- GOOGLE FONT (already optimized with display=swap) -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<!-- TAILWIND -->
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="canonical" href="https://onlymarketing.github.io/Vivek-Smart-Mobility/">
 <link rel="icon" href="logo.png">
 
-<!-- FACEBOOK PIXEL (kept compact) -->
+<!-- Facebook Pixel -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '3972817646347384');fbq('track', 'PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3972817646347384'); fbq('track', 'PageView');
 </script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html{scroll-behavior:smooth;}
-body{background:#09090b;overflow-x:hidden;}
-.hero-bg{
-background:linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),url('hero.webp');
-background-size:cover;background-position:center;background-repeat:no-repeat;
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+html { scroll-behavior:smooth; }
+body { background:#09090b; overflow-x:hidden; }
+.hero-bg {
+    background: linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)), url('hero.webp');
+    background-size: cover; background-position: center; background-repeat: no-repeat;
 }
-.input-field{transition:0.2s;}
-.input-field:focus{border-color:#f97316;box-shadow:0 0 0 4px rgba(249,115,22,0.15);}
-.lang-btn{transition:0.2s;}
-.lang-btn.active{background:#f97316;color:white;}
-select{appearance:none;-webkit-appearance:none;}
-.glass{backdrop-filter:blur(10px);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);}
+.input-field { transition: 0.2s; }
+.input-field:focus { border-color:#f97316; box-shadow:0 0 0 4px rgba(249,115,22,0.15); }
+.lang-btn { transition:0.2s; }
+.lang-btn.active { background:#f97316; color:white; }
+select { appearance:none; -webkit-appearance:none; }
+.glass { backdrop-filter:blur(10px); background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); }
 </style>
 </head>
 <body>
 
-<!-- LANGUAGE POPUP - EXACTLY SAME (no changes) -->
-<div id="langModal" class="fixed inset-0 bg-black/90 z-[999999] flex items-center justify-center px-5">
+<!-- LANGUAGE POPUP -->
+<div id="langModal" class="fixed inset-0 bg-black/90 z-[999999] flex items-center justify-center px-5 hidden">
 <div class="bg-white w-full max-w-sm rounded-[30px] p-7 text-center">
-<div class="w-20 h-20 rounded-3xl bg-orange-100 mx-auto flex items-center justify-center mb-5">
-<i class="fa-solid fa-language text-4xl text-orange-500"></i>
-</div>
-<h2 class="text-3xl font-bold mb-3">Choose Language</h2>
-<p class="text-zinc-500 mb-7">உங்கள் மொழியை தேர்ந்தெடுக்கவும்</p>
-<div class="space-y-4">
-<button onclick="selectLanguage('en')" class="w-full h-14 rounded-2xl bg-orange-500 text-white font-bold text-lg active:scale-95">English</button>
-<button onclick="selectLanguage('ta')" class="w-full h-14 rounded-2xl bg-zinc-900 text-white font-bold text-lg active:scale-95">தமிழ்</button>
-</div>
+    <div class="w-20 h-20 rounded-3xl bg-orange-100 mx-auto flex items-center justify-center mb-5">
+        <i class="fa-solid fa-language text-4xl text-orange-500"></i>
+    </div>
+    <h2 class="text-3xl font-bold mb-3">Choose Language</h2>
+    <p class="text-zinc-500 mb-7">உங்கள் மொழியை தேர்ந்தெடுக்கவும்</p>
+    <div class="space-y-4">
+        <button onclick="selectLanguage('en')" class="w-full h-14 rounded-2xl bg-orange-500 text-white font-bold text-lg active:scale-95">English</button>
+        <button onclick="selectLanguage('ta')" class="w-full h-14 rounded-2xl bg-zinc-900 text-white font-bold text-lg active:scale-95">தமிழ்</button>
+    </div>
 </div>
 </div>
 
 <!-- NAVBAR -->
 <nav class="bg-white sticky top-0 z-50 border-b border-zinc-200">
 <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-orange-500">
-<img src="logo.png" alt="logo" class="w-full h-full object-cover">
-</div>
-<div>
-<h1 id="logoText" class="text-[15px] md:text-xl font-bold text-orange-500 leading-tight">Vivek Smart Mobility</h1>
-<p id="logoSub" class="text-[11px] md:text-xs text-zinc-500">Ola • Uber • Rapido</p>
-</div>
-</div>
-<div class="flex gap-2">
-<button id="btnEN" onclick="switchLanguage('en')" class="lang-btn active px-4 py-2 rounded-xl bg-zinc-100 text-xs font-bold">EN</button>
-<button id="btnTA" onclick="switchLanguage('ta')" class="lang-btn px-4 py-2 rounded-xl bg-zinc-100 text-xs font-bold">தமிழ்</button>
-</div>
+    <div class="flex items-center gap-3">
+        <div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-orange-500">
+            <img src="logo.png" alt="logo" class="w-full h-full object-cover">
+        </div>
+        <div>
+            <h1 id="logoText" class="text-[15px] md:text-xl font-bold text-orange-500 leading-tight">Vivek Smart Mobility</h1>
+            <p id="logoSub" class="text-[11px] md:text-xs text-zinc-500">Ola • Uber • Rapido</p>
+        </div>
+    </div>
+    <div class="flex gap-2">
+        <button id="btnEN" onclick="switchLanguage('en')" class="lang-btn active px-4 py-2 rounded-xl bg-zinc-100 text-xs font-bold">EN</button>
+        <button id="btnTA" onclick="switchLanguage('ta')" class="lang-btn px-4 py-2 rounded-xl bg-zinc-100 text-xs font-bold">தமிழ்</button>
+    </div>
 </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero-bg text-white pt-20 pb-24">
 <div class="max-w-6xl mx-auto px-5 text-center">
-<div class="glass inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium mb-6">
-<i class="fa-solid fa-circle-check text-green-400"></i>
-<span id="trustedText">Trusted by 1200+ Drivers</span>
-</div>
-<h1 id="heroHeadline" class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">Tamil Nadu’s Trusted<br>Driver Support Platform</h1>
-<p id="heroSub" class="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto leading-9">Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support</p>
-<div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
-<a href="#formSection" id="applyNowBtn" class="bg-orange-500 hover:bg-orange-600 text-white px-8 h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 w-full md:w-auto">
-<i class="fa-solid fa-paper-plane"></i> Apply Now
-</a>
-<a onclick="makeCall()" class="bg-white text-black px-8 h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 cursor-pointer w-full md:w-auto">
-<i class="fa-solid fa-phone"></i>
-<span id="callNowTop">Call Now</span>
-</a>
-</div>
+    <div class="glass inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium mb-6">
+        <i class="fa-solid fa-circle-check text-green-400"></i>
+        <span id="trustedText">Trusted by 1200+ Drivers</span>
+    </div>
+    <h1 id="heroHeadline" class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">Tamil Nadu’s Trusted<br>Driver Support Platform</h1>
+    <p id="heroSub" class="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto leading-9">Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support</p>
+    <div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
+        <a href="#formSection" id="applyNowBtn" class="bg-orange-500 hover:bg-orange-600 text-white px-8 h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 w-full md:w-auto">
+            <i class="fa-solid fa-paper-plane"></i> Apply Now
+        </a>
+        <a onclick="makeCall()" class="bg-white text-black px-8 h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 cursor-pointer w-full md:w-auto">
+            <i class="fa-solid fa-phone"></i> <span id="callNowTop">Call Now</span>
+        </a>
+    </div>
 </div>
 </section>
 
 <!-- FORM -->
 <section id="formSection" class="-mt-12 relative z-20 px-4 pb-10">
 <div class="max-w-2xl mx-auto bg-white rounded-[32px] shadow-2xl p-6 md:p-8">
-<h2 id="formTitle" class="text-3xl font-bold text-center text-orange-500 mb-7">Apply Now</h2>
-<div class="space-y-5">
-<div>
-<label id="labelService" class="block mb-2 font-semibold text-sm">Choose Service *</label>
-<div class="relative">
-<select id="serviceSelect" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base"></select>
-<i class="fa-solid fa-angle-down absolute right-5 top-1/2 -translate-y-1/2 text-zinc-400"></i>
-</div>
-</div>
-<div>
-<label id="labelName" class="block mb-2 font-semibold text-sm">Full Name *</label>
-<input id="inputName" type="text" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base">
-</div>
-<div>
-<label id="labelMobile" class="block mb-2 font-semibold text-sm">Mobile Number *</label>
-<input id="inputMobile" type="tel" maxlength="10" inputmode="numeric" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base">
-</div>
-<div>
-<label id="labelCity" class="block mb-2 font-semibold text-sm">City / Area *</label>
-<input id="inputCity" type="text" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base">
-</div>
-<button onclick="submitToWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3">
-<i class="fa-brands fa-whatsapp text-2xl"></i>
-<span id="sendBtn">Send on WhatsApp</span>
-</button>
-</div>
+    <h2 id="formTitle" class="text-3xl font-bold text-center text-orange-500 mb-7">Apply Now</h2>
+    <div class="space-y-5">
+        <div>
+            <label id="labelService" class="block mb-2 font-semibold text-sm">Choose Service *</label>
+            <div class="relative">
+                <select id="serviceSelect" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base"></select>
+                <i class="fa-solid fa-angle-down absolute right-5 top-1/2 -translate-y-1/2 text-zinc-400"></i>
+            </div>
+        </div>
+        <div>
+            <label id="labelName" class="block mb-2 font-semibold text-sm">Full Name *</label>
+            <input id="inputName" type="text" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base">
+        </div>
+        <div>
+            <label id="labelMobile" class="block mb-2 font-semibold text-sm">Mobile Number *</label>
+            <input id="inputMobile" type="tel" maxlength="10" inputmode="numeric" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base">
+        </div>
+        <div>
+            <label id="labelCity" class="block mb-2 font-semibold text-sm">City / Area *</label>
+            <input id="inputCity" type="text" class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline-none text-base">
+        </div>
+        <button onclick="submitToWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3">
+            <i class="fa-brands fa-whatsapp text-2xl"></i> <span id="sendBtn">Send on WhatsApp</span>
+        </button>
+    </div>
 </div>
 </section>
 
-<!-- TRUST -->
+<!-- TRUST SECTION -->
 <section class="pb-12">
 <div class="max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-5">
-<div class="bg-white rounded-3xl p-6 text-center">
-<div class="text-4xl text-orange-500 mb-3"><i class="fa-solid fa-users"></i></div>
-<h3 class="trust-title font-bold text-xl">1200+ Drivers</h3>
-<p class="trust-sub text-zinc-500 mt-2">Already Joined</p>
-</div>
-<div class="bg-white rounded-3xl p-6 text-center">
-<div class="text-4xl text-orange-500 mb-3"><i class="fa-brands fa-whatsapp"></i></div>
-<h3 class="trust-title font-bold text-xl">Fast Support</h3>
-<p class="trust-sub text-zinc-500 mt-2">Quick WhatsApp Response</p>
-</div>
-<div class="bg-white rounded-3xl p-6 text-center">
-<div class="text-4xl text-orange-500 mb-3"><i class="fa-solid fa-shield"></i></div>
-<h3 class="trust-title font-bold text-xl">All Services</h3>
-<p class="trust-sub text-zinc-500 mt-2">Attachment • Insurance • Jobs</p>
-</div>
+    <div class="bg-white rounded-3xl p-6 text-center">
+        <div class="text-4xl text-orange-500 mb-3"><i class="fa-solid fa-users"></i></div>
+        <h3 class="trust-title font-bold text-xl">1200+ Drivers</h3>
+        <p class="trust-sub text-zinc-500 mt-2">Already Joined</p>
+    </div>
+    <div class="bg-white rounded-3xl p-6 text-center">
+        <div class="text-4xl text-orange-500 mb-3"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3 class="trust-title font-bold text-xl">Fast Support</h3>
+        <p class="trust-sub text-zinc-500 mt-2">Quick WhatsApp Response</p>
+    </div>
+    <div class="bg-white rounded-3xl p-6 text-center">
+        <div class="text-4xl text-orange-500 mb-3"><i class="fa-solid fa-shield"></i></div>
+        <h3 class="trust-title font-bold text-xl">All Services</h3>
+        <p class="trust-sub text-zinc-500 mt-2">Attachment • Insurance • Jobs</p>
+    </div>
 </div>
 </section>
 
 <!-- CALL SECTION -->
 <section class="bg-white py-14 px-5">
 <div class="max-w-3xl mx-auto text-center">
-<h2 id="bottomTitle" class="text-3xl md:text-4xl font-bold text-orange-500 mb-4">Need Instant Support?</h2>
-<p id="bottomSub" class="text-zinc-600 mb-8 text-lg">Call our support team now</p>
-<button onclick="makeCall()" class="bg-zinc-900 hover:bg-black text-white px-10 h-14 rounded-2xl font-bold text-lg inline-flex items-center justify-center gap-3">
-<i class="fa-solid fa-phone"></i>
-<span id="bottomCall">Call Now</span>
-</button>
+    <h2 id="bottomTitle" class="text-3xl md:text-4xl font-bold text-orange-500 mb-4">Need Instant Support?</h2>
+    <p id="bottomSub" class="text-zinc-600 mb-8 text-lg">Call our support team now</p>
+    <button onclick="makeCall()" class="bg-zinc-900 hover:bg-black text-white px-10 h-14 rounded-2xl font-bold text-lg inline-flex items-center justify-center gap-3">
+        <i class="fa-solid fa-phone"></i> <span id="bottomCall">Call Now</span>
+    </button>
 </div>
 </section>
 
@@ -180,166 +166,148 @@ select{appearance:none;-webkit-appearance:none;}
 const PHONE = "7397679900";
 let currentLang = "en";
 
-/* TRANSLATIONS - FULL & EXACT */
 const translations = {
 en: {
-logoText: "Vivek Smart Mobility",
-logoSub: "Ola • Uber • Rapido",
-trustedText: "Trusted by 1200+ Drivers",
-heroHeadline: "Tamil Nadu’s Trusted<br>Driver Support Platform",
-heroSub: "Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support",
-applyNowBtn: "Apply Now",
-callNowTop: "Call Now",
-formTitle: "Apply Now",
-labelService: "Choose Service *",
-labelName: "Full Name *",
-labelMobile: "Mobile Number *",
-labelCity: "City / Area *",
-sendBtn: "Send on WhatsApp",
-bottomTitle: "Need Instant Support?",
-bottomSub: "Call our support team now",
-bottomCall: "Call Now",
-trustTitles: ["1200+ Drivers","Fast Support","All Services"],
-trustSubs: ["Already Joined","Quick WhatsApp Response","Attachment • Insurance • Jobs"]
+    logoText: "Vivek Smart Mobility",
+    logoSub: "Ola • Uber • Rapido",
+    trustedText: "Trusted by 1200+ Drivers",
+    heroHeadline: "Tamil Nadu’s Trusted<br>Driver Support Platform",
+    heroSub: "Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support",
+    applyNowBtn: "Apply Now",
+    callNowTop: "Call Now",
+    formTitle: "Apply Now",
+    labelService: "Choose Service *",
+    labelName: "Full Name *",
+    labelMobile: "Mobile Number *",
+    labelCity: "City / Area *",
+    sendBtn: "Send on WhatsApp",
+    bottomTitle: "Need Instant Support?",
+    bottomSub: "Call our support team now",
+    bottomCall: "Call Now",
+    trustTitles: ["1200+ Drivers", "Fast Support", "All Services"],
+    trustSubs: ["Already Joined", "Quick WhatsApp Response", "Attachment • Insurance • Jobs"]
 },
 ta: {
-logoText: "விவேக் ஸ்மார்ட் மொபிலிட்டி",
-logoSub: "Ola • Uber • Rapido",
-trustedText: "1200+ டிரைவர்கள் நம்பிக்கை",
-heroHeadline: "தமிழ்நாட்டின் நம்பகமான<br>டிரைவர் சேவை தளம்",
-heroSub: "கேப் & ஆட்டோ இணைப்பு • இன்சூரன்ஸ் • டிரைவர் வேலை • வாட்ஸ்அப் உதவி",
-applyNowBtn: "இப்போதே விண்ணப்பிக்கவும்",
-callNowTop: "இப்போது அழைக்கவும்",
-formTitle: "இப்போதே விண்ணப்பிக்கவும்",
-labelService: "சேவையை தேர்ந்தெடுக்கவும் *",
-labelName: "முழு பெயர் *",
-labelMobile: "மொபைல் எண் *",
-labelCity: "நகரம் / பகுதி *",
-sendBtn: "வாட்ஸ்அப்பில் அனுப்பு",
-bottomTitle: "உடனடி உதவி வேண்டுமா?",
-bottomSub: "எங்கள் குழுவை இப்போதே அழைக்கவும்",
-bottomCall: "இப்போது அழைக்கவும்",
-trustTitles: ["1200+ டிரைவர்கள்","வேகமான உதவி","அனைத்து சேவைகள்"],
-trustSubs: ["ஏற்கனவே இணைந்துள்ளனர்","விரைவான வாட்ஸ்அப் பதில்","இணைப்பு • இன்சூரன்ஸ் • வேலை"]
+    logoText: "விவேக் ஸ்மார்ட் மொபிலிட்டி",
+    logoSub: "Ola • Uber • Rapido",
+    trustedText: "1200+ டிரைவர்கள் நம்பிக்கை",
+    heroHeadline: "தமிழ்நாட்டின் நம்பகமான<br>டிரைவர் சேவை தளம்",
+    heroSub: "கேப் & ஆட்டோ இணைப்பு • இன்சூரன்ஸ் • டிரைவர் வேலை • வாட்ஸ்அப் உதவி",
+    applyNowBtn: "இப்போதே விண்ணப்பிக்கவும்",
+    callNowTop: "இப்போது அழைக்கவும்",
+    formTitle: "இப்போதே விண்ணப்பிக்கவும்",
+    labelService: "சேவையை தேர்ந்தெடுக்கவும் *",
+    labelName: "முழு பெயர் *",
+    labelMobile: "மொபைல் எண் *",
+    labelCity: "நகரம் / பகுதி *",
+    sendBtn: "வாட்ஸ்அப்பில் அனுப்பு",
+    bottomTitle: "உடனடி உதவி வேண்டுமா?",
+    bottomSub: "எங்கள் குழுவை இப்போதே அழைக்கவும்",
+    bottomCall: "இப்போது அழைக்கவும்",
+    trustTitles: ["1200+ டிரைவர்கள்", "வேகமான உதவி", "அனைத்து சேவைகள்"],
+    trustSubs: ["ஏற்கனவே இணைந்துள்ளனர்", "விரைவான வாட்ஸ்அப் பதில்", "இணைப்பு • இன்சூரன்ஸ் • வேலை"]
 }
 };
 
-/* LANGUAGE SWITCH - FULL WEBSITE TRANSLATE (popup click + navbar) */
-function applyLanguage(lang){
-currentLang = lang;
-localStorage.setItem("siteLanguage", lang);
-document.documentElement.lang = lang;
-const t = translations[lang];
+function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("siteLanguage", lang);
+    document.documentElement.lang = lang;
+    const t = translations[lang];
 
-/* All text updates */
-document.getElementById("logoText").innerHTML = t.logoText;
-document.getElementById("logoSub").innerHTML = t.logoSub;
-document.getElementById("trustedText").innerHTML = t.trustedText;
-document.getElementById("heroHeadline").innerHTML = t.heroHeadline;
-document.getElementById("heroSub").innerHTML = t.heroSub;
-document.getElementById("applyNowBtn").innerHTML = `<i class="fa-solid fa-paper-plane"></i> ${t.applyNowBtn}`;
-document.getElementById("callNowTop").innerHTML = t.callNowTop;
-document.getElementById("formTitle").innerHTML = t.formTitle;
-document.getElementById("labelService").innerHTML = t.labelService;
-document.getElementById("labelName").innerHTML = t.labelName;
-document.getElementById("labelMobile").innerHTML = t.labelMobile;
-document.getElementById("labelCity").innerHTML = t.labelCity;
-document.getElementById("sendBtn").innerHTML = t.sendBtn;
-document.getElementById("bottomTitle").innerHTML = t.bottomTitle;
-document.getElementById("bottomSub").innerHTML = t.bottomSub;
-document.getElementById("bottomCall").innerHTML = t.bottomCall;
+    document.getElementById("logoText").innerHTML = t.logoText;
+    document.getElementById("logoSub").innerHTML = t.logoSub;
+    document.getElementById("trustedText").innerHTML = t.trustedText;
+    document.getElementById("heroHeadline").innerHTML = t.heroHeadline;
+    document.getElementById("heroSub").innerHTML = t.heroSub;
+    document.getElementById("applyNowBtn").innerHTML = `<i class="fa-solid fa-paper-plane"></i> ${t.applyNowBtn}`;
+    document.getElementById("callNowTop").innerHTML = t.callNowTop;
+    document.getElementById("formTitle").innerHTML = t.formTitle;
+    document.getElementById("labelService").innerHTML = t.labelService;
+    document.getElementById("labelName").innerHTML = t.labelName;
+    document.getElementById("labelMobile").innerHTML = t.labelMobile;
+    document.getElementById("labelCity").innerHTML = t.labelCity;
+    document.getElementById("sendBtn").innerHTML = t.sendBtn;
+    document.getElementById("bottomTitle").innerHTML = t.bottomTitle;
+    document.getElementById("bottomSub").innerHTML = t.bottomSub;
+    document.getElementById("bottomCall").innerHTML = t.bottomCall;
 
-/* Trust section */
-document.querySelectorAll(".trust-title").forEach((el,i)=> el.innerHTML = t.trustTitles[i]);
-document.querySelectorAll(".trust-sub").forEach((el,i)=> el.innerHTML = t.trustSubs[i]);
+    document.querySelectorAll(".trust-title").forEach((el,i) => el.innerHTML = t.trustTitles[i]);
+    document.querySelectorAll(".trust-sub").forEach((el,i) => el.innerHTML = t.trustSubs[i]);
 
-/* Language buttons active state */
-document.getElementById("btnEN").classList.remove("active");
-document.getElementById("btnTA").classList.remove("active");
-if(lang==="ta") document.getElementById("btnTA").classList.add("active");
-else document.getElementById("btnEN").classList.add("active");
+    // Active button
+    document.getElementById("btnEN").classList.remove("active");
+    document.getElementById("btnTA").classList.remove("active");
+    (lang === "ta" ? document.getElementById("btnTA") : document.getElementById("btnEN")).classList.add("active");
 
-/* Service dropdown */
-const serviceSelect = document.getElementById("serviceSelect");
-if(lang==="ta"){
-serviceSelect.innerHTML = `
-<option value="">சேவையை தேர்ந்தெடுக்கவும்</option>
-<option value="Ola Uber Rapido Attachment">Ola Uber Rapido கேப் & ஆட்டோ இணைப்பு</option>
-<option value="Insurance">T Board இன்சூரன்ஸ்</option>
-<option value="Driver Job">டிரைவர் வேலை</option>
-<option value="RTO Work">RTO வேலை</option>
-<option value="Car Finance">கார் ஃபைனான்ஸ்</option>
-<option value="IT Vehicles">IT வாகனங்கள்</option>
-<option value="Buy Sell Cars">கார் வாங்க & விற்க</option>`;
-} else {
-serviceSelect.innerHTML = `
-<option value="">Select Service</option>
-<option value="Ola Uber Rapido Cab & Auto Attachment">Ola Uber Rapido Cab & Auto Attachment</option>
-<option value="T Board Vehicle Insurance">T Board Vehicle Insurance</option>
-<option value="Driver Job">Driver Job</option>
-<option value="RTO Work">RTO Work</option>
-<option value="Car Finance">Car Finance</option>
-<option value="IT Vehicles">IT Vehicles</option>
-<option value="Buy & Sell Cars">Buy & Sell Cars</option>`;
+    // Service Dropdown
+    const sel = document.getElementById("serviceSelect");
+    if(lang === "ta"){
+        sel.innerHTML = `<option value="">சேவையை தேர்ந்தெடுக்கவும்</option>
+        <option value="Ola Uber Rapido Attachment">Ola Uber Rapido கேப் & ஆட்டோ இணைப்பு</option>
+        <option value="Insurance">T Board இன்சூரன்ஸ்</option>
+        <option value="Driver Job">டிரைவர் வேலை</option>
+        <option value="RTO Work">RTO வேலை</option>
+        <option value="Car Finance">கார் ஃபைனான்ஸ்</option>
+        <option value="IT Vehicles">IT வாகனங்கள்</option>
+        <option value="Buy Sell Cars">கார் வாங்க & விற்க</option>`;
+        document.getElementById("inputName").placeholder = "உங்கள் பெயர்";
+        document.getElementById("inputMobile").placeholder = "உங்கள் மொபைல் எண்";
+        document.getElementById("inputCity").placeholder = "சென்னை, கோயம்புத்தூர்";
+    } else {
+        sel.innerHTML = `<option value="">Select Service</option>
+        <option value="Ola Uber Rapido Cab & Auto Attachment">Ola Uber Rapido Cab & Auto Attachment</option>
+        <option value="T Board Vehicle Insurance">T Board Vehicle Insurance</option>
+        <option value="Driver Job">Driver Job</option>
+        <option value="RTO Work">RTO Work</option>
+        <option value="Car Finance">Car Finance</option>
+        <option value="IT Vehicles">IT Vehicles</option>
+        <option value="Buy & Sell Cars">Buy & Sell Cars</option>`;
+        document.getElementById("inputName").placeholder = "Enter your name";
+        document.getElementById("inputMobile").placeholder = "Your mobile number";
+        document.getElementById("inputCity").placeholder = "Chennai, Coimbatore";
+    }
 }
 
-/* Placeholders */
-if(lang==="ta"){
-document.getElementById("inputName").placeholder = "உங்கள் பெயர்";
-document.getElementById("inputMobile").placeholder = "உங்கள் மொபைல் எண்";
-document.getElementById("inputCity").placeholder = "சென்னை, கோயம்புத்தூர்";
-} else {
-document.getElementById("inputName").placeholder = "Enter your name";
-document.getElementById("inputMobile").placeholder = "Your mobile number";
-document.getElementById("inputCity").placeholder = "Chennai, Coimbatore";
-}
+function selectLanguage(lang) {
+    applyLanguage(lang);
+    document.getElementById("langModal").classList.add("hidden");
+    document.body.style.overflow = "auto";
 }
 
-/* POPUP CLICK */
-function selectLanguage(lang){
-applyLanguage(lang);
-document.getElementById("langModal").style.display = "none";
-document.body.style.overflow = "auto";
+function switchLanguage(lang) {
+    applyLanguage(lang);
 }
 
-/* NAVBAR SWITCH */
-function switchLanguage(lang){
-applyLanguage(lang);
+function makeCall() {
+    window.location.href = `tel:${PHONE}`;
 }
 
-/* CALL */
-function makeCall(){
-window.location.href = `tel:${PHONE}`;
+function submitToWhatsApp() {
+    const service = document.getElementById("serviceSelect").value;
+    const name = document.getElementById("inputName").value.trim();
+    const mobile = document.getElementById("inputMobile").value.trim();
+    const city = document.getElementById("inputCity").value.trim();
+
+    if(!service) return alert(currentLang==="en" ? "Please select service" : "சேவையை தேர்ந்தெடுக்கவும்");
+    if(!name) return alert(currentLang==="en" ? "Please enter name" : "பெயரை உள்ளிடவும்");
+    if(!/^[6-9]\d{9}$/.test(mobile)) return alert(currentLang==="en" ? "Enter valid mobile number" : "சரியான மொபைல் எண்ணை உள்ளிடவும்");
+
+    const message = currentLang === "en" 
+        ? `Hi Vivek Smart Mobility!\nService: ${service}\nName: ${name}\nMobile: ${mobile}\nCity: ${city}\nPlease contact me.`
+        : `வணக்கம் விவேக் ஸ்மார்ட் மொபிலிட்டி!\nசேவை: ${service}\nபெயர்: ${name}\nமொபைல்: ${mobile}\nநகரம்: ${city}\nதயவுசெய்து தொடர்பு கொள்ளவும்.`;
+
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-/* WHATSAPP */
-function submitToWhatsApp(){
-const service = document.getElementById("serviceSelect").value;
-const name = document.getElementById("inputName").value.trim();
-const mobile = document.getElementById("inputMobile").value.trim();
-const city = document.getElementById("inputCity").value.trim();
-
-if(!service){alert(currentLang==="en"?"Please select service":"சேவையை தேர்ந்தெடுக்கவும்");return;}
-if(!name){alert(currentLang==="en"?"Please enter name":"பெயரை உள்ளிடவும்");return;}
-if(!/^[6-9]\d{9}$/.test(mobile)){alert(currentLang==="en"?"Enter valid mobile number":"சரியான மொபைல் எண்ணை உள்ளிடவும்");return;}
-
-const message = currentLang === "en"
-? `Hi Vivek Smart Mobility!\nService: ${service}\nName: ${name}\nMobile: ${mobile}\nCity: ${city}\nPlease contact me.`
-: `வணக்கம் விவேக் ஸ்மார்ட் மொபிலிட்டி!\nசேவை: ${service}\nபெயர்: ${name}\nமொபைல்: ${mobile}\nநகரம்: ${city}\nதயவுசெய்து தொடர்பு கொள்ளவும்.`;
-
-window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`,'_blank');
-}
-
-/* PAGE LOAD */
-window.addEventListener("load", function(){
-const savedLang = localStorage.getItem("siteLanguage");
-if(!savedLang){
-document.getElementById("langModal").style.display = "flex";
-document.body.style.overflow = "hidden";
-} else {
-applyLanguage(savedLang);
-document.getElementById("langModal").style.display = "none";
-}
+window.addEventListener("load", () => {
+    const savedLang = localStorage.getItem("siteLanguage");
+    if (!savedLang) {
+        document.getElementById("langModal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    } else {
+        applyLanguage(savedLang);
+    }
 });
 </script>
 </body>
