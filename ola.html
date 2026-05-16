@@ -491,6 +491,8 @@ Call Now
 
 <script>
 
+<script>
+
 const PHONE = "7397679900";
 
 let currentLang = "en";
@@ -500,11 +502,12 @@ const translations = {
 en:{
 
 logoText:"Vivek Smart Mobility",
+
 logoSub:"Ola • Uber • Rapido",
 
-heroHeadline:"Ola Uber Rapido<br>Cab & Auto Attachment",
+heroHeadline:"Tamil Nadu’s Trusted<br>Driver Support Platform",
 
-heroSub:"Join Tamil Nadu's trusted cab attachment platform for drivers and vehicle owners.",
+heroSub:"Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support",
 
 formTitle:"Apply Now",
 
@@ -532,9 +535,9 @@ logoText:"விவேக் ஸ்மார்ட் மொபிலிட்�
 
 logoSub:"Ola • Uber • Rapido",
 
-heroHeadline:"Ola Uber Rapido<br>கேப் & ஆட்டோ இணைப்பு",
+heroHeadline:"தமிழ்நாட்டின் நம்பகமான<br>டிரைவர் சேவை தளம்",
 
-heroSub:"தமிழ்நாட்டின் நம்பகமான கேப் இணைப்பு தளம்",
+heroSub:"கேப் & ஆட்டோ இணைப்பு • இன்சூரன்ஸ் • டிரைவர் வேலை • வாட்ஸ்அப் உதவி",
 
 formTitle:"இப்போதே விண்ணப்பிக்கவும்",
 
@@ -568,15 +571,15 @@ const t = translations[lang];
 
 Object.keys(t).forEach(key=>{
 
-const el=document.getElementById(key);
+const el = document.getElementById(key);
 
 if(el){
-el.innerHTML=t[key];
+el.innerHTML = t[key];
 }
 
 });
 
-if(lang==="ta"){
+if(lang === "ta"){
 
 document.getElementById("btnTA").classList.add("active");
 document.getElementById("btnEN").classList.remove("active");
@@ -587,7 +590,7 @@ document.getElementById("inputMobile").placeholder="உங்கள் மொப
 
 document.getElementById("inputCity").placeholder="சென்னை, கோயம்புத்தூர்";
 
-document.getElementById("serviceSelect").innerHTML=`
+document.getElementById("serviceSelect").innerHTML = `
 
 <option value="">
 சேவையை தேர்ந்தெடுக்கவும்
@@ -634,7 +637,7 @@ document.getElementById("inputMobile").placeholder="Your mobile number";
 
 document.getElementById("inputCity").placeholder="Chennai, Coimbatore";
 
-document.getElementById("serviceSelect").innerHTML=`
+document.getElementById("serviceSelect").innerHTML = `
 
 <option value="">
 Select Service
@@ -676,15 +679,11 @@ Buy & Sell Cars
 
 function selectLanguage(lang){
 
-fbq('trackCustom', 'LanguageSelected', {
-language: lang
-});
-
 applyLanguage(lang);
 
-document.getElementById("langModal").style.display="none";
+document.getElementById("langModal").style.display = "none";
 
-document.body.style.overflow="auto";
+document.body.style.overflow = "auto";
 
 }
 
@@ -696,23 +695,23 @@ applyLanguage(lang);
 
 function makeCall(){
 
-window.location.href=`tel:${PHONE}`;
+window.location.href = `tel:${PHONE}`;
 
 }
 
 function submitToWhatsApp(){
 
-const service=document.getElementById("serviceSelect").value;
+const service = document.getElementById("serviceSelect").value;
 
-const name=document.getElementById("inputName").value.trim();
+const name = document.getElementById("inputName").value.trim();
 
-const mobile=document.getElementById("inputMobile").value.trim();
+const mobile = document.getElementById("inputMobile").value.trim();
 
-const city=document.getElementById("inputCity").value.trim();
+const city = document.getElementById("inputCity").value.trim();
 
-if(service===""){
+if(service === ""){
 
-alert(currentLang==="en"
+alert(currentLang === "en"
 ? "Please select service"
 : "சேவையை தேர்ந்தெடுக்கவும்");
 
@@ -720,9 +719,9 @@ return;
 
 }
 
-if(name===""){
+if(name === ""){
 
-alert(currentLang==="en"
+alert(currentLang === "en"
 ? "Enter your name"
 : "உங்கள் பெயரை உள்ளிடவும்");
 
@@ -732,7 +731,7 @@ return;
 
 if(!/^[6-9]\d{9}$/.test(mobile)){
 
-alert(currentLang==="en"
+alert(currentLang === "en"
 ? "Enter valid mobile number"
 : "சரியான மொபைல் எண்ணை உள்ளிடவும்");
 
@@ -740,7 +739,7 @@ return;
 
 }
 
-const message=currentLang==="en"
+const message = currentLang === "en"
 
 ? `Hi Vivek Smart Mobility!
 
@@ -760,30 +759,6 @@ Please contact me.`
 
 தயவுசெய்து தொடர்பு கொள்ளவும்.`;
 
-const leadData={
-
-service,
-name,
-mobile,
-city,
-language:currentLang,
-source:"Landing Page"
-
-};
-
-fetch("https://script.google.com/macros/s/AKfycbyqtBFQb4453B84tWnEhTZilUeqMDarjW-AeUFMfGH0nnjV5B-Buvip5LwyHZsJepes/exec",{
-
-method:"POST",
-mode:"no-cors",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify(leadData)
-
-});
-
 window.open(
 `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`,
 '_blank'
@@ -793,7 +768,7 @@ window.open(
 
 function initialize(){
 
-document.body.style.visibility="visible";
+document.body.style.visibility = "visible";
 
 const savedLang = localStorage.getItem("siteLanguage");
 
@@ -801,21 +776,21 @@ if(savedLang){
 
 applyLanguage(savedLang);
 
-document.getElementById("langModal").style.display="none";
+document.getElementById("langModal").style.display = "none";
 
-document.body.style.overflow="auto";
+document.body.style.overflow = "auto";
 
 }else{
 
-document.getElementById("langModal").style.display="flex";
+document.getElementById("langModal").style.display = "flex";
 
-document.body.style.overflow="hidden";
-
-}
+document.body.style.overflow = "hidden";
 
 }
 
-window.onload=initialize;
+}
+
+window.onload = initialize;
 
 </script>
 
