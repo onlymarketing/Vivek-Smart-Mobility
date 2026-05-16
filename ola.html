@@ -17,8 +17,9 @@
 
 <link rel="canonical" href="https://onlymarketing.github.io/Vivek-Smart-Mobility/">
 
-<link rel="icon" href="logo.png">
+<link rel="icon" href="logo.webp">
 
+<!-- FACEBOOK PIXEL -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -33,8 +34,17 @@ s.parentNode.insertBefore(t,s)}
 fbq('init', '3972817646347384');
 fbq('track', 'PageView');
 </script>
-  
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- TAILWIND -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
 
@@ -42,7 +52,7 @@ fbq('track', 'PageView');
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:system-ui,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -53,7 +63,7 @@ overflow-x:hidden;
 .hero-bg{
 background:
 linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-url('https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1600&auto=format&fit=crop');
+url('hero.webp');
 
 background-size:cover;
 background-position:center;
@@ -73,42 +83,57 @@ appearance:none;
 -webkit-appearance:none;
 }
 
+.lang-btn{
+transition:.2s;
+}
+
+.lang-btn.active{
+background:#f97316;
+color:#fff;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 </style>
 
 </head>
 
-<body>
+<body style="visibility:hidden;">
 
 <!-- LANGUAGE POPUP -->
 
 <div id="langModal"
-class="fixed inset-0 bg-black/80 z-[99999] flex items-center justify-center px-5">
+class="fixed inset-0 bg-black/90 z-[999999] flex items-center justify-center px-5">
 
-<div class="bg-white w-full max-w-sm rounded-3xl p-7 text-center">
+<div class="bg-white w-full max-w-sm rounded-[30px] p-7 text-center">
 
-<div class="w-16 h-16 mx-auto rounded-2xl bg-orange-100 flex items-center justify-center mb-5">
-<i class="fa-solid fa-language text-3xl text-orange-500"></i>
+<div class="w-20 h-20 mx-auto rounded-3xl bg-orange-100 flex items-center justify-center mb-5">
+
+<i class="fa-solid fa-language text-4xl text-orange-500"></i>
+
 </div>
 
-<h2 class="text-2xl font-bold mb-2">
+<h2 class="text-3xl font-bold mb-3">
 Choose Language
 </h2>
 
-<p class="text-zinc-500 mb-6">
+<p class="text-zinc-500 mb-7">
 உங்கள் மொழியை தேர்ந்தெடுக்கவும்
 </p>
 
-<div class="space-y-3">
+<div class="space-y-4">
 
 <button onclick="selectLanguage('en')"
-class="w-full h-14 rounded-2xl border-2 border-zinc-200 font-semibold active:scale-95">
+class="w-full h-14 rounded-2xl bg-orange-500 text-white font-bold text-lg active:scale-95">
 
 English
 
 </button>
 
 <button onclick="selectLanguage('ta')"
-class="w-full h-14 rounded-2xl border-2 border-zinc-200 font-semibold active:scale-95">
+class="w-full h-14 rounded-2xl bg-zinc-900 text-white font-bold text-lg active:scale-95">
 
 தமிழ்
 
@@ -126,26 +151,28 @@ class="w-full h-14 rounded-2xl border-2 border-zinc-200 font-semibold active:sca
 
 <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-3">
 
-<div class="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-orange-500 overflow-hidden shrink-0">
+<div class="w-11 h-11 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-orange-500 shrink-0">
 
-<img src="logo.png"
-loading="lazy"
-decoding="async"
+<img src="logo.webp"
+alt="Vivek Smart Mobility Logo"
+class="w-full h-full object-cover"
+loading="lazy">
+
 </div>
 
 <div>
 
 <h1 id="logoText"
-class="text-[15px] md:text-xl font-bold text-orange-600 leading-tight">
+class="text-[15px] md:text-xl font-bold text-orange-500 leading-tight">
 
 Vivek Smart Mobility
 
 </h1>
 
 <p id="logoSub"
-class="text-[9px] md:text-xs text-zinc-500">
+class="text-[10px] md:text-xs text-zinc-500">
 
 Ola • Uber • Rapido
 
@@ -155,17 +182,21 @@ Ola • Uber • Rapido
 
 </div>
 
+<!-- LANGUAGE BUTTON -->
+
 <div class="flex items-center gap-2">
 
-<button onclick="switchLanguage('en')"
-class="bg-orange-500 text-white px-3 py-2 rounded-xl text-xs font-semibold">
+<button id="btnEN"
+onclick="switchLanguage('en')"
+class="lang-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100">
 
 EN
 
 </button>
 
-<button onclick="switchLanguage('ta')"
-class="bg-zinc-900 text-white px-3 py-2 rounded-xl text-xs font-semibold">
+<button id="btnTA"
+onclick="switchLanguage('ta')"
+class="lang-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100">
 
 தமிழ்
 
@@ -179,7 +210,7 @@ class="bg-zinc-900 text-white px-3 py-2 rounded-xl text-xs font-semibold">
 
 <!-- HERO -->
 
-<section class="hero-bg text-white pt-16 pb-14">
+<section class="hero-bg text-white pt-16 pb-16">
 
 <div class="max-w-5xl mx-auto px-5 text-center">
 
@@ -192,9 +223,9 @@ Cab & Auto Attachment
 </h1>
 
 <p id="heroSub"
-class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-8">
 
-Join the best cab attachment platform in Tamil Nadu
+Join Tamil Nadu's trusted cab attachment platform for drivers, auto owners and vehicle services.
 
 </p>
 
@@ -235,7 +266,7 @@ class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline
 Select Service
 </option>
 
-<option value="Ola Uber Rapido Attachment">
+<option value="Ola Uber Rapido Cab & Auto Attachment">
 Ola Uber Rapido Cab & Auto Attachment
 </option>
 
@@ -480,7 +511,7 @@ logoSub:"Ola • Uber • Rapido",
 
 heroHeadline:"Ola Uber Rapido<br>Cab & Auto Attachment",
 
-heroSub:"Join the best cab attachment platform in Tamil Nadu",
+heroSub:"Join Tamil Nadu's trusted cab attachment platform for drivers and vehicle owners.",
 
 formTitle:"Apply Now",
 
@@ -510,7 +541,7 @@ logoSub:"Ola • Uber • Rapido",
 
 heroHeadline:"Ola Uber Rapido<br>கேப் & ஆட்டோ இணைப்பு",
 
-heroSub:"தமிழ்நாட்டின் சிறந்த கேப் இணைப்பு தளம்",
+heroSub:"தமிழ்நாட்டின் நம்பகமான கேப் இணைப்பு தளம்",
 
 formTitle:"இப்போதே விண்ணப்பிக்கவும்",
 
@@ -538,6 +569,8 @@ function applyLanguage(lang){
 
 currentLang = lang;
 
+localStorage.setItem("siteLanguage", lang);
+
 const t = translations[lang];
 
 Object.keys(t).forEach(key=>{
@@ -545,14 +578,15 @@ Object.keys(t).forEach(key=>{
 const el=document.getElementById(key);
 
 if(el){
-
 el.innerHTML=t[key];
-
 }
 
 });
 
 if(lang==="ta"){
+
+document.getElementById("btnTA").classList.add("active");
+document.getElementById("btnEN").classList.remove("active");
 
 document.getElementById("inputName").placeholder="உங்கள் பெயர்";
 
@@ -597,6 +631,9 @@ IT வாகனங்கள்
 `;
 
 }else{
+
+document.getElementById("btnEN").classList.add("active");
+document.getElementById("btnTA").classList.remove("active");
 
 document.getElementById("inputName").placeholder="Enter your name";
 
@@ -652,9 +689,9 @@ language: lang
 
 applyLanguage(lang);
 
-document.getElementById("langModal").style.display = "none";
+document.getElementById("langModal").style.display="none";
 
-document.body.style.overflow = "auto";
+document.body.style.overflow="auto";
 
 }
 
@@ -755,27 +792,39 @@ body:JSON.stringify(leadData)
 });
 
 window.open(
-
 `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`,
-
 '_blank'
-
 );
 
 }
 
 function initialize(){
 
-document.body.style.visibility = "visible";
+document.body.style.visibility="visible";
 
-document.getElementById("langModal").style.display = "flex";
+const savedLang = localStorage.getItem("siteLanguage");
 
-document.body.style.overflow = "hidden";
+if(savedLang){
+
+applyLanguage(savedLang);
+
+document.getElementById("langModal").style.display="none";
+
+document.body.style.overflow="auto";
+
+}else{
+
+document.getElementById("langModal").style.display="flex";
+
+document.body.style.overflow="hidden";
+
+}
 
 }
 
 window.onload=initialize;
 
 </script>
+
 </body>
 </html>
