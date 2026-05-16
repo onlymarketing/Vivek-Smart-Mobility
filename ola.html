@@ -539,18 +539,6 @@ bottomCall:"இப்போது அழைக்கவும்"
 
 };
 
-function saveLang(lang){
-
-localStorage.setItem("vsmLang",lang);
-
-}
-
-function getSavedLang(){
-
-return localStorage.getItem("vsmLang");
-
-}
-
 function applyLanguage(lang){
 
 currentLang = lang;
@@ -663,21 +651,21 @@ Buy & Sell Cars
 
 function selectLanguage(lang){
 
+fbq('trackCustom', 'LanguageSelected', {
+language: lang
+});
+
 applyLanguage(lang);
 
-saveLang(lang);
+document.getElementById("langModal").style.display = "none";
 
-document.getElementById("langModal").style.display="none";
-
-document.body.style.overflow="auto";
+document.body.style.overflow = "auto";
 
 }
 
 function switchLanguage(lang){
 
 applyLanguage(lang);
-
-saveLang(lang);
 
 }
 
@@ -783,33 +771,16 @@ window.open(
 
 function initialize(){
 
-document.body.style.visibility="hidden";
+document.body.style.visibility = "visible";
 
-const savedLang=getSavedLang();
+document.getElementById("langModal").style.display = "flex";
 
-if(savedLang){
-
-applyLanguage(savedLang);
-
-document.getElementById("langModal").style.display="none";
-
-document.body.style.visibility="visible";
-
-}else{
-
-document.getElementById("langModal").style.display="flex";
-
-document.body.style.overflow="hidden";
-
-document.body.style.visibility="visible";
-
-}
+document.body.style.overflow = "hidden";
 
 }
 
 window.onload=initialize;
 
 </script>
-
 </body>
 </html>
