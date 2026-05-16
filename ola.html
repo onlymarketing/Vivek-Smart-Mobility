@@ -568,57 +568,65 @@ const PHONE = "7397679900";
 
 let currentLang = "en";
 
+/* =========================
+TRANSLATIONS
+========================= */
+
 const translations = {
 
 en: {
 
-logoText:"Vivek Smart Mobility",
-logoSub:"Ola • Uber • Rapido",
+logoText: "Vivek Smart Mobility",
+logoSub: "Ola • Uber • Rapido",
 
-heroHeadline:"Tamil Nadu’s Trusted<br>Driver Support Platform",
+heroHeadline: "Tamil Nadu’s Trusted<br>Driver Support Platform",
 
-heroSub:"Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support",
+heroSub: "Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support",
 
-formTitle:"Apply Now",
+formTitle: "Apply Now",
 
-labelService:"Choose Service *",
-labelName:"Full Name *",
-labelMobile:"Mobile Number *",
-labelCity:"City / Area *",
+labelService: "Choose Service *",
+labelName: "Full Name *",
+labelMobile: "Mobile Number *",
+labelCity: "City / Area *",
 
-sendBtn:"Send on WhatsApp",
+sendBtn: "Send on WhatsApp",
 
-bottomTitle:"Need Instant Support?",
-bottomSub:"Call our support team now",
-bottomCall:"Call Now"
+bottomTitle: "Need Instant Support?",
+bottomSub: "Call our support team now",
+bottomCall: "Call Now"
 
 },
 
 ta: {
 
-logoText:"விவேக் ஸ்மார்ட் மொபிலிட்டி",
-logoSub:"Ola • Uber • Rapido",
+logoText: "விவேக் ஸ்மார்ட் மொபிலிட்டி",
+logoSub: "Ola • Uber • Rapido",
 
-heroHeadline:"தமிழ்நாட்டின் நம்பகமான<br>டிரைவர் சேவை தளம்",
+heroHeadline: "தமிழ்நாட்டின் நம்பகமான<br>டிரைவர் சேவை தளம்",
 
-heroSub:"கேப் & ஆட்டோ இணைப்பு • இன்சூரன்ஸ் • டிரைவர் வேலை • வாட்ஸ்அப் உதவி",
+heroSub: "கேப் & ஆட்டோ இணைப்பு • இன்சூரன்ஸ் • டிரைவர் வேலை • வாட்ஸ்அப் உதவி",
 
-formTitle:"இப்போதே விண்ணப்பிக்கவும்",
+formTitle: "இப்போதே விண்ணப்பிக்கவும்",
 
-labelService:"சேவையை தேர்ந்தெடுக்கவும் *",
-labelName:"முழு பெயர் *",
-labelMobile:"மொபைல் எண் *",
-labelCity:"நகரம் / பகுதி *",
+labelService: "சேவையை தேர்ந்தெடுக்கவும் *",
+labelName: "முழு பெயர் *",
+labelMobile: "மொபைல் எண் *",
+labelCity: "நகரம் / பகுதி *",
 
-sendBtn:"வாட்ஸ்அப்பில் அனுப்பு",
+sendBtn: "வாட்ஸ்அப்பில் அனுப்பு",
 
-bottomTitle:"உடனடி உதவி வேண்டுமா?",
-bottomSub:"எங்கள் குழுவை இப்போதே அழைக்கவும்",
-bottomCall:"இப்போது அழைக்கவும்"
+bottomTitle: "உடனடி உதவி வேண்டுமா?",
+bottomSub: "எங்கள் குழுவை இப்போதே அழைக்கவும்",
+bottomCall: "இப்போது அழைக்கவும்"
 
 }
 
 };
+
+/* =========================
+APPLY LANGUAGE
+========================= */
 
 function applyLanguage(lang){
 
@@ -628,20 +636,44 @@ localStorage.setItem("siteLanguage", lang);
 
 const t = translations[lang];
 
-for(const key in t){
+/* TEXT CHANGE */
 
-const el = document.getElementById(key);
+document.getElementById("logoText").innerHTML = t.logoText;
+document.getElementById("logoSub").innerHTML = t.logoSub;
 
-if(el){
-el.innerHTML = t[key];
-}
+document.getElementById("heroHeadline").innerHTML = t.heroHeadline;
+document.getElementById("heroSub").innerHTML = t.heroSub;
 
-}
+document.getElementById("formTitle").innerHTML = t.formTitle;
+
+document.getElementById("labelService").innerHTML = t.labelService;
+document.getElementById("labelName").innerHTML = t.labelName;
+document.getElementById("labelMobile").innerHTML = t.labelMobile;
+document.getElementById("labelCity").innerHTML = t.labelCity;
+
+document.getElementById("sendBtn").innerHTML = t.sendBtn;
+
+document.getElementById("bottomTitle").innerHTML = t.bottomTitle;
+document.getElementById("bottomSub").innerHTML = t.bottomSub;
+document.getElementById("bottomCall").innerHTML = t.bottomCall;
+
+/* BUTTON ACTIVE */
 
 if(lang === "ta"){
 
 document.getElementById("btnTA").classList.add("active");
 document.getElementById("btnEN").classList.remove("active");
+
+}else{
+
+document.getElementById("btnEN").classList.add("active");
+document.getElementById("btnTA").classList.remove("active");
+
+}
+
+/* PLACEHOLDER */
+
+if(lang === "ta"){
 
 document.getElementById("inputName").placeholder = "உங்கள் பெயர்";
 
@@ -686,9 +718,6 @@ IT வாகனங்கள்
 `;
 
 }else{
-
-document.getElementById("btnEN").classList.add("active");
-document.getElementById("btnTA").classList.remove("active");
 
 document.getElementById("inputName").placeholder = "Enter your name";
 
@@ -736,15 +765,21 @@ Buy & Sell Cars
 
 }
 
+/* =========================
+POPUP LANGUAGE SELECT
+========================= */
+
 function selectLanguage(lang){
 
 applyLanguage(lang);
 
 document.getElementById("langModal").style.display = "none";
 
-document.body.style.overflow = "auto";
-
 }
+
+/* =========================
+TOP BUTTON LANGUAGE SWITCH
+========================= */
 
 function switchLanguage(lang){
 
@@ -752,27 +787,41 @@ applyLanguage(lang);
 
 }
 
+/* =========================
+CALL
+========================= */
+
 function makeCall(){
 
 window.location.href = `tel:${PHONE}`;
 
 }
 
+/* =========================
+WHATSAPP
+========================= */
+
 function submitToWhatsApp(){
 
-const service = document.getElementById("serviceSelect").value.trim();
+const service =
+document.getElementById("serviceSelect").value;
 
-const name = document.getElementById("inputName").value.trim();
+const name =
+document.getElementById("inputName").value.trim();
 
-const mobile = document.getElementById("inputMobile").value.trim();
+const mobile =
+document.getElementById("inputMobile").value.trim();
 
-const city = document.getElementById("inputCity").value.trim();
+const city =
+document.getElementById("inputCity").value.trim();
 
 if(service === ""){
 
-alert(currentLang === "en"
+alert(
+currentLang === "en"
 ? "Please select service"
-: "சேவையை தேர்ந்தெடுக்கவும்");
+: "சேவையை தேர்ந்தெடுக்கவும்"
+);
 
 return;
 
@@ -780,9 +829,11 @@ return;
 
 if(name === ""){
 
-alert(currentLang === "en"
+alert(
+currentLang === "en"
 ? "Please enter name"
-: "பெயரை உள்ளிடவும்");
+: "பெயரை உள்ளிடவும்"
+);
 
 return;
 
@@ -790,9 +841,11 @@ return;
 
 if(!/^[6-9]\d{9}$/.test(mobile)){
 
-alert(currentLang === "en"
+alert(
+currentLang === "en"
 ? "Enter valid mobile number"
-: "சரியான மொபைல் எண்ணை உள்ளிடவும்");
+: "சரியான மொபைல் எண்ணை உள்ளிடவும்"
+);
 
 return;
 
@@ -825,25 +878,34 @@ window.open(
 
 }
 
-window.addEventListener("load", function(){
+/* =========================
+PAGE LOAD
+========================= */
+
+window.onload = function(){
 
 const savedLang = localStorage.getItem("siteLanguage");
 
-if(savedLang){
+/* FIRST TIME */
 
-applyLanguage(savedLang);
-
-document.getElementById("langModal").style.display = "none";
-
-}else{
+if(!savedLang){
 
 document.getElementById("langModal").style.display = "flex";
 
 }
 
-});
+/* RETURN USER */
+
+else{
+
+applyLanguage(savedLang);
+
+document.getElementById("langModal").style.display = "none";
+
+}
+
+};
 
 </script>
-
 </body>
 </html>
