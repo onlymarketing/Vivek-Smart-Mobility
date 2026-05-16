@@ -22,13 +22,28 @@
 <!-- FACEBOOK PIXEL -->
 <script>
 !function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}
-(window, document,'script',
+{
+if(f.fbq)return;
+n=f.fbq=function(){
+n.callMethod ?
+n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+};
+
+if(!f._fbq)f._fbq=n;
+
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+
+}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
 fbq('init', '3972817646347384');
@@ -42,8 +57,8 @@ fbq('track', 'PageView');
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
 rel="stylesheet">
 
 <style>
@@ -55,6 +70,10 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 background:#09090b;
 overflow-x:hidden;
@@ -62,20 +81,30 @@ overflow-x:hidden;
 
 .hero-bg{
 background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
 url('hero.webp');
 
 background-size:cover;
 background-position:center;
+background-repeat:no-repeat;
 }
 
 .input-field{
-transition:.2s;
+transition:0.2s;
 }
 
 .input-field:focus{
 border-color:#f97316;
-box-shadow:0 0 0 4px rgba(249,115,22,.15);
+box-shadow:0 0 0 4px rgba(249,115,22,0.15);
+}
+
+.lang-btn{
+transition:0.2s;
+}
+
+.lang-btn.active{
+background:#f97316;
+color:white;
 }
 
 select{
@@ -83,24 +112,17 @@ appearance:none;
 -webkit-appearance:none;
 }
 
-.lang-btn{
-transition:.2s;
-}
-
-.lang-btn.active{
-background:#f97316;
-color:#fff;
-}
-
-html{
-scroll-behavior:smooth;
+.glass{
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
 }
 
 </style>
 
 </head>
 
-<body style="visibility:hidden;">
+<body>
 
 <!-- LANGUAGE POPUP -->
 
@@ -109,7 +131,7 @@ class="fixed inset-0 bg-black/90 z-[999999] flex items-center justify-center px-
 
 <div class="bg-white w-full max-w-sm rounded-[30px] p-7 text-center">
 
-<div class="w-20 h-20 mx-auto rounded-3xl bg-orange-100 flex items-center justify-center mb-5">
+<div class="w-20 h-20 rounded-3xl bg-orange-100 mx-auto flex items-center justify-center mb-5">
 
 <i class="fa-solid fa-language text-4xl text-orange-500"></i>
 
@@ -153,12 +175,11 @@ class="w-full h-14 rounded-2xl bg-zinc-900 text-white font-bold text-lg active:s
 
 <div class="flex items-center gap-3">
 
-<div class="w-11 h-11 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-orange-500 shrink-0">
+<div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-orange-500">
 
 <img src="logo.webp"
-alt="Vivek Smart Mobility Logo"
-class="w-full h-full object-cover"
-loading="lazy">
+alt="logo"
+class="w-full h-full object-cover">
 
 </div>
 
@@ -172,7 +193,7 @@ Vivek Smart Mobility
 </h1>
 
 <p id="logoSub"
-class="text-[10px] md:text-xs text-zinc-500">
+class="text-[11px] md:text-xs text-zinc-500">
 
 Ola • Uber • Rapido
 
@@ -182,13 +203,11 @@ Ola • Uber • Rapido
 
 </div>
 
-<!-- LANGUAGE BUTTON -->
-
-<div class="flex items-center gap-2">
+<div class="flex gap-2">
 
 <button id="btnEN"
 onclick="switchLanguage('en')"
-class="lang-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100">
+class="lang-btn active px-4 py-2 rounded-xl bg-zinc-100 text-xs font-bold">
 
 EN
 
@@ -196,7 +215,7 @@ EN
 
 <button id="btnTA"
 onclick="switchLanguage('ta')"
-class="lang-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100">
+class="lang-btn px-4 py-2 rounded-xl bg-zinc-100 text-xs font-bold">
 
 தமிழ்
 
@@ -210,30 +229,68 @@ class="lang-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100">
 
 <!-- HERO -->
 
-<section class="hero-bg text-white pt-16 pb-16">
+<section class="hero-bg text-white pt-20 pb-24">
 
-<div class="max-w-5xl mx-auto px-5 text-center">
+<div class="max-w-6xl mx-auto px-5 text-center">
+
+<div class="glass inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium mb-6">
+
+<i class="fa-solid fa-circle-check text-green-400"></i>
+
+<span>Trusted by 1200+ Drivers</span>
+
+</div>
 
 <h1 id="heroHeadline"
-class="text-4xl md:text-6xl font-bold leading-tight mb-5">
+class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+
 Tamil Nadu’s Trusted<br>
 Driver Support Platform
+
 </h1>
+
 <p id="heroSub"
-class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-8">
+class="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto leading-9">
+
 Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Support
+
 </p>
+
+<div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
+
+<a href="#formSection"
+class="bg-orange-500 hover:bg-orange-600 text-white px-8 h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 w-full md:w-auto">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Apply Now
+
+</a>
+
+<a onclick="makeCall()"
+class="bg-white text-black px-8 h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 cursor-pointer w-full md:w-auto">
+
+<i class="fa-solid fa-phone"></i>
+
+Call Now
+
+</a>
+
 </div>
+
+</div>
+
 </section>
 
-  <!-- FORM -->
+<!-- FORM -->
 
-<section class="-mt-10 relative z-20 px-4">
+<section id="formSection"
+class="-mt-12 relative z-20 px-4 pb-10">
 
-<div class="max-w-2xl mx-auto bg-white rounded-[30px] shadow-2xl p-6 md:p-8">
+<div class="max-w-2xl mx-auto bg-white rounded-[32px] shadow-2xl p-6 md:p-8">
 
 <h2 id="formTitle"
-class="text-2xl font-bold text-center text-orange-500 mb-6">
+class="text-3xl font-bold text-center text-orange-500 mb-7">
 
 Apply Now
 
@@ -241,10 +298,12 @@ Apply Now
 
 <div class="space-y-5">
 
+<!-- SERVICE -->
+
 <div>
 
 <label id="labelService"
-class="block mb-2 font-medium text-sm">
+class="block mb-2 font-semibold text-sm">
 
 Choose Service *
 
@@ -295,10 +354,12 @@ Buy & Sell Cars
 
 </div>
 
+<!-- NAME -->
+
 <div>
 
 <label id="labelName"
-class="block mb-2 font-medium text-sm">
+class="block mb-2 font-semibold text-sm">
 
 Full Name *
 
@@ -311,10 +372,12 @@ class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline
 
 </div>
 
+<!-- MOBILE -->
+
 <div>
 
 <label id="labelMobile"
-class="block mb-2 font-medium text-sm">
+class="block mb-2 font-semibold text-sm">
 
 Mobile Number *
 
@@ -329,10 +392,12 @@ class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline
 
 </div>
 
+<!-- CITY -->
+
 <div>
 
 <label id="labelCity"
-class="block mb-2 font-medium text-sm">
+class="block mb-2 font-semibold text-sm">
 
 City / Area *
 
@@ -345,15 +410,15 @@ class="input-field w-full border-2 border-zinc-300 rounded-2xl px-5 py-4 outline
 
 </div>
 
+<!-- BUTTON -->
+
 <button onclick="submitToWhatsApp()"
 class="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-3">
 
 <i class="fa-brands fa-whatsapp text-2xl"></i>
 
 <span id="sendBtn">
-
 Send on WhatsApp
-
 </span>
 
 </button>
@@ -364,38 +429,56 @@ Send on WhatsApp
 
 </section>
 
-<!-- TRUST -->
+<!-- TRUST SECTION -->
 
-<section class="py-10">
+<section class="pb-12">
 
-<div class="max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-5">
 
-<div class="bg-white rounded-3xl p-5 text-center">
+<div class="bg-white rounded-3xl p-6 text-center">
 
-<h3 class="font-bold text-lg">1200+ Drivers</h3>
+<div class="text-4xl text-orange-500 mb-3">
+<i class="fa-solid fa-users"></i>
+</div>
 
-<p class="text-zinc-500 text-sm">
+<h3 class="font-bold text-xl">
+1200+ Drivers
+</h3>
+
+<p class="text-zinc-500 mt-2">
 Already Joined
 </p>
 
 </div>
 
-<div class="bg-white rounded-3xl p-5 text-center">
+<div class="bg-white rounded-3xl p-6 text-center">
 
-<h3 class="font-bold text-lg">Fast Approval</h3>
+<div class="text-4xl text-orange-500 mb-3">
+<i class="fa-brands fa-whatsapp"></i>
+</div>
 
-<p class="text-zinc-500 text-sm">
-Quick WhatsApp Support
+<h3 class="font-bold text-xl">
+Fast Support
+</h3>
+
+<p class="text-zinc-500 mt-2">
+Quick WhatsApp Response
 </p>
 
 </div>
 
-<div class="bg-white rounded-3xl p-5 text-center">
+<div class="bg-white rounded-3xl p-6 text-center">
 
-<h3 class="font-bold text-lg">All Services</h3>
+<div class="text-4xl text-orange-500 mb-3">
+<i class="fa-solid fa-shield"></i>
+</div>
 
-<p class="text-zinc-500 text-sm">
-Cab • Auto • Insurance
+<h3 class="font-bold text-xl">
+All Services
+</h3>
+
+<p class="text-zinc-500 mt-2">
+Attachment • Insurance • Jobs
 </p>
 
 </div>
@@ -423,7 +506,7 @@ Ola Uber Rapido Attachment Chennai
 </p>
 
 <p>
-Drivers க்கு easy process, fast approval, WhatsApp support ஆகியவை available. Ola attachment office near me, Uber attachment office Chennai, Rapido attachment office போன்ற search resultsல் தேடும் அனைத்து services இங்கே கிடைக்கும்.
+Drivers க்கு easy process, fast approval, WhatsApp support ஆகியவை available.
 </p>
 
 <p>
@@ -431,15 +514,7 @@ Drivers க்கு easy process, fast approval, WhatsApp support ஆகிய�
 </p>
 
 <p>
-Commercial drivers க்கு insurance மிகவும் முக்கியமானது. அதனால் T Board vehicle insurance renewal support கூட available.
-</p>
-
-<p>
-Driver jobs, cab attachment, auto attachment, finance support, RTO work, buy & sell cars போன்ற அனைத்தும் ஒரே இடத்தில் கிடைக்கும்.
-</p>
-
-<p>
-Chennai full area support available including Guindy, Tambaram, Ambattur, Velachery, Porur, Anna Nagar, Avadi மற்றும் nearby locations.
+Commercial drivers க்கு insurance renewal support கூட available.
 </p>
 
 <p>
@@ -454,36 +529,34 @@ WhatsApp மூலம் direct apply செய்யலாம். Fast response
 
 <!-- CALL SECTION -->
 
-<section class="bg-white py-12 px-5">
+<section class="bg-white py-14 px-5">
 
 <div class="max-w-3xl mx-auto text-center">
 
 <h2 id="bottomTitle"
-class="text-3xl font-bold text-orange-500 mb-4">
+class="text-3xl md:text-4xl font-bold text-orange-500 mb-4">
 
 Need Instant Support?
 
 </h2>
 
 <p id="bottomSub"
-class="text-zinc-600 mb-8">
+class="text-zinc-600 mb-8 text-lg">
 
 Call our support team now
 
 </p>
 
-<a onclick="makeCall()"
-class="inline-flex items-center justify-center gap-3 bg-zinc-900 text-white px-10 h-14 rounded-2xl font-bold text-lg cursor-pointer">
+<button onclick="makeCall()"
+class="bg-zinc-900 hover:bg-black text-white px-10 h-14 rounded-2xl font-bold text-lg inline-flex items-center justify-center gap-3">
 
 <i class="fa-solid fa-phone"></i>
 
 <span id="bottomCall">
-
 Call Now
-
 </span>
 
-</a>
+</button>
 
 </div>
 
@@ -497,10 +570,9 @@ let currentLang = "en";
 
 const translations = {
 
-en:{
+en: {
 
 logoText:"Vivek Smart Mobility",
-
 logoSub:"Ola • Uber • Rapido",
 
 heroHeadline:"Tamil Nadu’s Trusted<br>Driver Support Platform",
@@ -510,27 +582,21 @@ heroSub:"Cab & Auto Attachment • Insurance • Driver Jobs • WhatsApp Suppor
 formTitle:"Apply Now",
 
 labelService:"Choose Service *",
-
 labelName:"Full Name *",
-
 labelMobile:"Mobile Number *",
-
 labelCity:"City / Area *",
 
 sendBtn:"Send on WhatsApp",
 
 bottomTitle:"Need Instant Support?",
-
 bottomSub:"Call our support team now",
-
 bottomCall:"Call Now"
 
 },
 
-ta:{
+ta: {
 
 logoText:"விவேக் ஸ்மார்ட் மொபிலிட்டி",
-
 logoSub:"Ola • Uber • Rapido",
 
 heroHeadline:"தமிழ்நாட்டின் நம்பகமான<br>டிரைவர் சேவை தளம்",
@@ -540,19 +606,14 @@ heroSub:"கேப் & ஆட்டோ இணைப்பு • இன்ச�
 formTitle:"இப்போதே விண்ணப்பிக்கவும்",
 
 labelService:"சேவையை தேர்ந்தெடுக்கவும் *",
-
 labelName:"முழு பெயர் *",
-
 labelMobile:"மொபைல் எண் *",
-
 labelCity:"நகரம் / பகுதி *",
 
 sendBtn:"வாட்ஸ்அப்பில் அனுப்பு",
 
 bottomTitle:"உடனடி உதவி வேண்டுமா?",
-
 bottomSub:"எங்கள் குழுவை இப்போதே அழைக்கவும்",
-
 bottomCall:"இப்போது அழைக்கவும்"
 
 }
@@ -567,7 +628,7 @@ localStorage.setItem("siteLanguage", lang);
 
 const t = translations[lang];
 
-Object.keys(t).forEach(key=>{
+for(const key in t){
 
 const el = document.getElementById(key);
 
@@ -575,18 +636,18 @@ if(el){
 el.innerHTML = t[key];
 }
 
-});
+}
 
 if(lang === "ta"){
 
 document.getElementById("btnTA").classList.add("active");
 document.getElementById("btnEN").classList.remove("active");
 
-document.getElementById("inputName").placeholder="உங்கள் பெயர்";
+document.getElementById("inputName").placeholder = "உங்கள் பெயர்";
 
-document.getElementById("inputMobile").placeholder="உங்கள் மொபைல் எண்";
+document.getElementById("inputMobile").placeholder = "உங்கள் மொபைல் எண்";
 
-document.getElementById("inputCity").placeholder="சென்னை, கோயம்புத்தூர்";
+document.getElementById("inputCity").placeholder = "சென்னை, கோயம்புத்தூர்";
 
 document.getElementById("serviceSelect").innerHTML = `
 
@@ -598,8 +659,8 @@ document.getElementById("serviceSelect").innerHTML = `
 Ola Uber Rapido கேப் & ஆட்டோ இணைப்பு
 </option>
 
-<option value="T Board Vehicle Insurance">
-T Board வாகன இன்சூரன்ஸ்
+<option value="Insurance">
+T Board இன்சூரன்ஸ்
 </option>
 
 <option value="Driver Job">
@@ -618,7 +679,7 @@ RTO வேலை
 IT வாகனங்கள்
 </option>
 
-<option value="Buy & Sell Cars">
+<option value="Buy Sell Cars">
 கார் வாங்க & விற்க
 </option>
 
@@ -629,11 +690,11 @@ IT வாகனங்கள்
 document.getElementById("btnEN").classList.add("active");
 document.getElementById("btnTA").classList.remove("active");
 
-document.getElementById("inputName").placeholder="Enter your name";
+document.getElementById("inputName").placeholder = "Enter your name";
 
-document.getElementById("inputMobile").placeholder="Your mobile number";
+document.getElementById("inputMobile").placeholder = "Your mobile number";
 
-document.getElementById("inputCity").placeholder="Chennai, Coimbatore";
+document.getElementById("inputCity").placeholder = "Chennai, Coimbatore";
 
 document.getElementById("serviceSelect").innerHTML = `
 
@@ -641,7 +702,7 @@ document.getElementById("serviceSelect").innerHTML = `
 Select Service
 </option>
 
-<option value="Ola Uber Rapido Attachment">
+<option value="Ola Uber Rapido Cab & Auto Attachment">
 Ola Uber Rapido Cab & Auto Attachment
 </option>
 
@@ -699,7 +760,7 @@ window.location.href = `tel:${PHONE}`;
 
 function submitToWhatsApp(){
 
-const service = document.getElementById("serviceSelect").value;
+const service = document.getElementById("serviceSelect").value.trim();
 
 const name = document.getElementById("inputName").value.trim();
 
@@ -720,8 +781,8 @@ return;
 if(name === ""){
 
 alert(currentLang === "en"
-? "Enter your name"
-: "உங்கள் பெயரை உள்ளிடவும்");
+? "Please enter name"
+: "பெயரை உள்ளிடவும்");
 
 return;
 
@@ -764,9 +825,7 @@ window.open(
 
 }
 
-function initialize(){
-
-document.body.style.visibility = "visible";
+window.addEventListener("load", function(){
 
 const savedLang = localStorage.getItem("siteLanguage");
 
@@ -776,19 +835,13 @@ applyLanguage(savedLang);
 
 document.getElementById("langModal").style.display = "none";
 
-document.body.style.overflow = "auto";
-
 }else{
 
 document.getElementById("langModal").style.display = "flex";
 
-document.body.style.overflow = "hidden";
-
 }
 
-}
-
-window.onload = initialize;
+});
 
 </script>
 
