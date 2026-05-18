@@ -246,7 +246,8 @@ class="-mt-10 relative z-10 px-4 pb-10">
 <div class="max-w-2xl mx-auto bg-white rounded-[32px] shadow-2xl p-6 md:p-8">
 
 <h2 id="formTitle"
-class="text-3xl font-bold text-center text-orange-500 mb-7">
+class="text-[32px] md:text-3xl font-bold text-center text-orange-500 mb-7 leading-tight break-words px-2">
+
 
 Apply Now
 
@@ -570,7 +571,7 @@ Privacy Policy
 
 <script>
 
-const PHONE='7397679900 ';
+const PHONE='7397679900';
 
 let currentLang='en';
 
@@ -750,8 +751,7 @@ body:JSON.stringify(leadData)
 
 });
 
-window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`,'_blank');
-
+window.open(`https://wa.me/91${PHONE}?text=${encodeURIComponent(message)}`,'_blank');
 showToast(translations[currentLang].success);
 
 document.getElementById('inputName').value='';
