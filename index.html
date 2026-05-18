@@ -818,21 +818,11 @@ document.getElementById('btnTA').classList.add('active');
 
 document.addEventListener('DOMContentLoaded',()=>{
 
-const saved=localStorage.getItem('siteLanguage');
-
-if(saved){
-
-switchLanguage(saved);
-
-}else{
-
 document.getElementById('langModal').style.display='flex';
 
 document.body.style.overflow='hidden';
 
 switchLanguage('en');
-
-}
 
 });
 
