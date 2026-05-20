@@ -751,7 +751,11 @@ body:JSON.stringify(leadData)
 
 });
 
-window.open(`https://wa.me/91${PHONE}?text=${encodeURIComponent(message)}`,'_blank');
+const whatsappURL=`https://wa.me/91${PHONE}?text=${encodeURIComponent(message)}`;
+
+sessionStorage.setItem("wa_redirect", whatsappURL);
+
+window.location.href="thankyou.html";
 showToast(translations[currentLang].success);
 
 document.getElementById('inputName').value='';
