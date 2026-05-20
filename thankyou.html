@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thank You</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-black text-white flex items-center justify-center min-h-screen px-5">
+
+<div class="text-center max-w-md">
+
+<h1 class="text-4xl font-bold text-orange-500 mb-5">
+Thank You 🎉
+</h1>
+
+<p class="text-zinc-300 text-lg leading-8 mb-8">
+Your details have been submitted successfully.
+Our team will contact you shortly.
+</p>
+
+<button onclick="goWhatsApp()"
+class="bg-[#25D366] hover:bg-[#1ebe5d] px-8 h-14 rounded-2xl font-bold text-lg">
+
+Continue to WhatsApp
+
+</button>
+
+</div>
+
+<script>
+
+function goWhatsApp(){
+
+const url=sessionStorage.getItem("wa_redirect");
+
+if(url){
+
+window.location.href=url;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
